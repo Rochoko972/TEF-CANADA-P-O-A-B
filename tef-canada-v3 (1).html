@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEF Canada — Expression Orale</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep:    #0a0e1a;
+  --bg-mid:     #0d1530;
+  --bg-card:    #111827;
+  --blue-bright:#4a90e2;
+  --blue-light: #7eb8f7;
+  --purple:     #8b5cf6;
+  --purple-dim: #6d28d9;
+  --accent:     #38bdf8;
+  --green:      #10b981;
+  --red:        #ef4444;
+  --text:       #e2e8f0;
+  --text-dim:   #94a3b8;
+  --border:     rgba(74,144,226,0.2);
+  --glow-blue:  rgba(74,144,226,0.15);
+  --glow-purple:rgba(139,92,246,0.15);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* GRID BACKGROUND */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(74,144,226,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,144,226,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(74,144,226,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 80%, rgba(139,92,246,0.1) 0%, transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ================================
+   ACCUEIL
+================================ */
+#accueil {
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.system-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(16,185,129,0.1);
+  border:1px solid rgba(16,185,129,0.3);
+  border-radius:50px;
+  padding:6px 18px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#10b981;
+  margin-bottom:40px;
+}
+
+.system-badge::before {
+  content:'';
+  width:7px;height:7px;
+  border-radius:50%;
+  background:#10b981;
+  box-shadow:0 0 8px #10b981;
+  animation: blink 2s ease infinite;
+}
+
+@keyframes blink {
+  0%,100%{opacity:1;}
+  50%{opacity:0.3;}
+}
+
+.hero-title {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:clamp(60px,12vw,120px);
+  font-weight:900;
+  line-height:0.9;
+  letter-spacing:-2px;
+  margin-bottom:16px;
+}
+
+.hero-title .line1 {
+  background: linear-gradient(135deg, #7eb8f7 0%, #4a90e2 40%, #8b5cf6 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:block;
+}
+
+.hero-title .line2 {
+  color:white;
+  display:block;
+  text-shadow:0 0 60px rgba(255,255,255,0.1);
+}
+
+.hero-sub {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:var(--text-dim);
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:center;
+}
+
+.hero-sub::before,.hero-sub::after {
+  content:'';
+  width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue-bright));
+}
+
+.hero-sub::after { transform:scaleX(-1); }
+
+.hero-desc {
+  font-size:15px;
+  color:var(--text-dim);
+  max-width:480px;
+  line-height:1.7;
+  margin-bottom:48px;
+}
+
+.stats-row {
+  display:flex;
+  gap:20px;
+  margin-bottom:48px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.stat-box {
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.stat-box::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg, var(--blue-bright), var(--purple));
+}
+
+.stat-val {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:36px;
+  font-weight:800;
+  color:var(--blue-light);
+  display:block;
+  line-height:1;
+}
+
+.stat-lab {
+  font-size:11px;
+  color:var(--text-dim);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+
+.btn-init {
+  background:linear-gradient(135deg, #4a90e2, #6d28d9);
+  color:white;
+  border:none;
+  padding:20px 56px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  border-radius:12px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-init::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+
+.btn-init:hover::before { opacity:1; }
+.btn-init:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(74,144,226,0.4); }
+
+.btn-init .arrow { margin-left:10px; display:inline-block; transition:transform 0.3s; }
+.btn-init:hover .arrow { transform:translateX(4px); }
+
+/* ================================
+   SUJET SCREEN
+================================ */
+#sujet-screen {
+  display:none;
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  padding:20px 16px 40px;
+}
+
+.top-bar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:900px;
+  margin:0 auto 20px;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.section-tag {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:6px 16px;
+  border-radius:6px;
+}
+
+.tag-a {
+  background:rgba(74,144,226,0.15);
+  border:1px solid rgba(74,144,226,0.4);
+  color:var(--blue-light);
+}
+
+.tag-b {
+  background:rgba(139,92,246,0.15);
+  border:1px solid rgba(139,92,246,0.4);
+  color:#c4b5fd;
+}
+
+.steps-dots {
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+
+.dot {
+  width:8px;height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  transition:all 0.3s;
+}
+
+.dot.active {background:var(--blue-bright);box-shadow:0 0 8px var(--blue-bright);}
+.dot.done {background:var(--green);}
+
+.timer-wrap { text-align:right; }
+
+.timer-label {
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  margin-bottom:2px;
+}
+
+.timer-num {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:36px;
+  font-weight:800;
+  color:var(--blue-light);
+  line-height:1;
+  transition:color 0.3s;
+}
+
+.timer-num.urgent {
+  color:var(--red);
+  animation:pulse-red 0.6s ease infinite;
+}
+
+@keyframes pulse-red {
+  0%,100%{opacity:1;}
+  50%{opacity:0.4;}
+}
+
+.progress-wrap {
+  max-width:900px;
+  margin:0 auto 24px;
+  height:3px;
+  background:rgba(255,255,255,0.06);
+  border-radius:3px;
+  overflow:hidden;
+}
+
+.progress-fill {
+  height:100%;
+  background:linear-gradient(90deg, var(--blue-bright), var(--purple));
+  border-radius:3px;
+  transition:width 0.5s ease;
+  box-shadow:0 0 8px var(--blue-bright);
+}
+
+.content-wrap { max-width:900px; margin:0 auto; }
+
+/* ANNONCE CARD */
+.annonce-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px;
+  margin-bottom:16px;
+  position:relative;
+  overflow:hidden;
+}
+
+.annonce-card::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue-bright),var(--accent));
+}
+
+.card-label {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--blue-bright);
+  margin-bottom:10px;
+  opacity:0.7;
+}
+
+.card-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;
+  font-weight:800;
+  color:white;
+  margin-bottom:14px;
+  line-height:1.2;
+}
+
+.card-body {
+  font-size:14px;
+  line-height:1.8;
+  color:var(--text-dim);
+  border-left:2px solid rgba(74,144,226,0.4);
+  padding-left:14px;
+  margin-bottom:18px;
+}
+
+.chips-row { display:flex; gap:8px; flex-wrap:wrap; }
+
+.chip {
+  background:rgba(74,144,226,0.1);
+  border:1px solid rgba(74,144,226,0.25);
+  border-radius:6px;
+  padding:4px 12px;
+  font-size:12px;
+  color:var(--blue-light);
+  font-weight:500;
+}
+
+/* MISSION BOX */
+.mission-box {
+  background:rgba(74,144,226,0.06);
+  border:1px solid rgba(74,144,226,0.2);
+  border-radius:12px;
+  padding:18px 22px;
+  margin-bottom:16px;
+}
+
+.mission-label {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--blue-bright);
+  margin-bottom:8px;
+}
+
+.mission-text {
+  font-size:14px;
+  line-height:1.7;
+  color:var(--text);
+}
+
+/* SECTION B */
+.doc-card {
+  background:var(--bg-card);
+  border:1px solid rgba(139,92,246,0.25);
+  border-radius:16px;
+  padding:28px;
+  margin-bottom:16px;
+  position:relative;
+  overflow:hidden;
+}
+
+.doc-card::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--purple),#c4b5fd);
+}
+
+.doc-badge {
+  display:inline-block;
+  background:rgba(139,92,246,0.15);
+  border:1px solid rgba(139,92,246,0.3);
+  border-radius:6px;
+  padding:3px 10px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#c4b5fd;
+  margin-bottom:10px;
+}
+
+.doc-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;
+  font-weight:800;
+  color:white;
+  margin-bottom:14px;
+  line-height:1.2;
+}
+
+.doc-body {
+  font-size:14px;
+  line-height:1.8;
+  color:var(--text-dim);
+  margin-bottom:16px;
+}
+
+.doc-infos {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  border-top:1px solid rgba(139,92,246,0.15);
+  padding-top:14px;
+}
+
+.doc-chip {
+  background:rgba(139,92,246,0.1);
+  border:1px solid rgba(139,92,246,0.2);
+  border-radius:6px;
+  padding:4px 12px;
+  font-size:12px;
+  color:#c4b5fd;
+}
+
+/* MISSION BOX B */
+.mission-box-b {
+  background:rgba(139,92,246,0.06);
+  border:1px solid rgba(139,92,246,0.2);
+  border-radius:12px;
+  padding:18px 22px;
+  margin-bottom:16px;
+}
+
+.mission-box-b .mission-label { color:#c4b5fd; }
+
+.roles-row {
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.role-pill {
+  border-radius:8px;
+  padding:8px 14px;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.role-you {
+  background:rgba(16,185,129,0.1);
+  border:1px solid rgba(16,185,129,0.25);
+  color:#6ee7b7;
+}
+
+.role-examiner {
+  background:rgba(239,68,68,0.1);
+  border:1px solid rgba(239,68,68,0.25);
+  color:#fca5a5;
+}
+
+/* OBJECTIONS */
+.objections-panel {
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:16px;
+}
+
+.panel-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.panel-title::after {
+  content:'';flex:1;height:1px;
+  background:rgba(255,255,255,0.06);
+}
+
+.hint-text {
+  font-size:12px;
+  color:var(--text-dim);
+  font-style:italic;
+  margin-bottom:14px;
+  opacity:0.7;
+}
+
+.obj-grid { display:flex; flex-direction:column; gap:8px; }
+
+.obj-item {
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  background:rgba(239,68,68,0.05);
+  border:1px solid rgba(239,68,68,0.15);
+  border-radius:8px;
+  padding:11px 14px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  position:relative;
+}
+
+.obj-item:hover {
+  background:rgba(239,68,68,0.1);
+  border-color:rgba(239,68,68,0.35);
+  transform:translateX(4px);
+}
+
+.obj-item.revealed {
+  background:rgba(16,185,129,0.06);
+  border-color:rgba(16,185,129,0.25);
+}
+
+.obj-emoji { font-size:16px; flex-shrink:0; margin-top:1px; }
+
+.obj-text {
+  font-size:13px;
+  line-height:1.6;
+  color:var(--text-dim);
+  font-style:italic;
+}
+
+.obj-cat {
+  position:absolute;
+  top:7px;right:10px;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:rgba(239,68,68,0.5);
+  font-weight:600;
+}
+
+.obj-item.revealed .obj-cat { color:rgba(16,185,129,0.6); }
+
+/* ACTION BUTTONS */
+.actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:4px; }
+
+.btn {
+  padding:11px 24px;
+  border-radius:8px;
+  border:none;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all 0.2s ease;
+}
+
+.btn-start {
+  background:linear-gradient(135deg,var(--blue-bright),var(--purple-dim));
+  color:white;
+}
+
+.btn-start:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(74,144,226,0.35); }
+
+.btn-next {
+  background:linear-gradient(135deg,var(--green),#059669);
+  color:white;
+}
+
+.btn-next:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(16,185,129,0.3); }
+
+.btn-ghost {
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.15);
+  color:var(--text-dim);
+}
+
+.btn-ghost:hover { border-color:var(--blue-bright); color:var(--blue-light); }
+
+/* PREP BANNER */
+.prep-banner {
+  display:none;
+  position:fixed;
+  top:16px;right:16px;
+  background:rgba(10,14,26,0.95);
+  border:1px solid var(--blue-bright);
+  border-radius:12px;
+  padding:12px 20px;
+  z-index:200;
+  align-items:center;
+  gap:14px;
+  box-shadow:0 0 30px rgba(74,144,226,0.3);
+}
+
+.prep-banner.active { display:flex; }
+
+.prep-count {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:44px;
+  font-weight:900;
+  color:var(--blue-light);
+  line-height:1;
+  min-width:52px;
+  text-align:center;
+}
+
+.prep-info { font-size:12px; color:var(--text-dim); max-width:180px; line-height:1.4; }
+.prep-info strong { color:var(--blue-light); display:block; margin-bottom:2px; font-size:11px; letter-spacing:1px; text-transform:uppercase; }
+
+/* RÉSULTATS */
+#resultats-screen {
+  display:none;
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+}
+
+.result-badge {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--green);
+  background:rgba(16,185,129,0.1);
+  border:1px solid rgba(16,185,129,0.3);
+  border-radius:50px;
+  padding:6px 18px;
+  margin-bottom:24px;
+}
+
+.result-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(36px,6vw,64px);
+  font-weight:900;
+  color:white;
+  margin-bottom:8px;
+}
+
+.result-sub { font-size:15px; color:var(--text-dim); margin-bottom:40px; }
+
+.result-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  max-width:480px;
+  width:100%;
+  margin-bottom:36px;
+}
+
+.result-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:24px;
+}
+
+.result-card.a { border-color:rgba(74,144,226,0.35); }
+.result-card.b { border-color:rgba(139,92,246,0.35); }
+
+.rc-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text-dim); margin-bottom:8px; }
+.rc-time { font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; line-height:1; }
+.rc-time.a { color:var(--blue-light); }
+.rc-time.b { color:#c4b5fd; }
+.rc-sub { font-size:12px; color:var(--text-dim); margin-top:4px; }
+
+.tips-box {
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(212,168,83,0.2);
+  border-radius:12px;
+  padding:24px 28px;
+  max-width:600px;
+  text-align:left;
+  margin-bottom:32px;
+}
+
+.tips-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#fbbf24;
+  margin-bottom:14px;
+}
+
+.tips-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+
+.tips-list li {
+  font-size:13px;
+  line-height:1.6;
+  color:var(--text-dim);
+  padding-left:18px;
+  position:relative;
+}
+
+.tips-list li::before {
+  content:'›';
+  position:absolute;left:0;
+  color:#fbbf24;font-size:16px;line-height:1.3;
+}
+</style>
+</head>
+<body>
+
+<!-- ======================== ACCUEIL ======================== -->
+<div id="accueil">
+  <div class="system-badge">System Online</div>
+
+  <h1 class="hero-title">
+    <span class="line1">TEF</span>
+    <span class="line2">CANADA</span>
+  </h1>
+
+  <div class="hero-sub">Expression Orale</div>
+
+  <p class="hero-desc">
+    Préparez les 2 sections de l'expression orale du TEF Canada avec des sujets authentiques tirés du format réel de l'examen.
+  </p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <span class="stat-val">75</span>
+      <span class="stat-lab">Sujets Section A</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-val">75</span>
+      <span class="stat-lab">Sujets Section B</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-val">15</span>
+      <span class="stat-lab">Minutes / session</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-val">450</span>
+      <span class="stat-lab">Points max</span>
+    </div>
+  </div>
+
+  <button class="btn-init" onclick="demarrerSession()">
+    Initialiser la mission <span class="arrow">↓</span>
+  </button>
+</div>
+
+<!-- ======================== SUJET ======================== -->
+<div id="sujet-screen">
+  <div class="progress-wrap">
+    <div class="progress-fill" id="prog" style="width:0%"></div>
+  </div>
+
+  <div class="top-bar">
+    <span class="section-tag" id="sec-tag">Section A</span>
+    <div class="steps-dots" id="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="timer-wrap">
+      <div class="timer-label" id="t-label">Durée max</div>
+      <div class="timer-num" id="t-num">5:00</div>
+    </div>
+  </div>
+
+  <div class="content-wrap" id="content"></div>
+</div>
+
+<!-- ======================== RÉSULTATS ======================== -->
+<div id="resultats-screen">
+  <div class="result-badge">✓ Mission accomplie</div>
+  <h2 class="result-title">Session terminée !</h2>
+  <p class="result-sub">Vous avez complété les deux sections.</p>
+
+  <div class="result-grid">
+    <div class="result-card a">
+      <div class="rc-label">Section A</div>
+      <div class="rc-time a" id="r-a">—</div>
+      <div class="rc-sub">sur 5:00</div>
+    </div>
+    <div class="result-card b">
+      <div class="rc-label">Section B</div>
+      <div class="rc-time b" id="r-b">—</div>
+      <div class="rc-sub">sur 10:00</div>
+    </div>
+  </div>
+
+  <div class="tips-box">
+    <div class="tips-title">⚡ Rappels stratégiques</div>
+    <ul class="tips-list">
+      <li><strong>Section A :</strong> Tutoyez ou vouvoyez selon le contexte. Posez des questions précises sur l'annonce. Soyez naturel(le) comme dans un vrai appel.</li>
+      <li><strong>Section B :</strong> Présentez le document d'abord, puis donnez vos arguments <em>un par un</em>. Attendez chaque objection avant de répondre.</li>
+      <li>Face aux objections : <em>« C'est vrai que… cependant… »</em> — concédez, puis retournez l'argument.</li>
+      <li>Remplacez <em>« mais »</em> par : <em>cependant, néanmoins, toutefois, en revanche</em>.</li>
+      <li>Ton informel en Section B : tutoyez l'examinateur !</li>
+    </ul>
+  </div>
+
+  <button class="btn-init" onclick="nouvelleSession()">Nouvelle mission <span class="arrow">→</span></button>
+</div>
+
+<!-- PREP BANNER -->
+<div class="prep-banner" id="prep-banner">
+  <div class="prep-count" id="prep-count">60</div>
+  <div class="prep-info">
+    <strong>⏱ Préparation</strong>
+    Lisez le document et préparez vos arguments !
+  </div>
+</div>
+
+<script>
+// ============================================================
+// 75 SUJETS SECTION A — Appel téléphonique
+// ============================================================
+const sujetsA = [
+  // EMPLOI (20 sujets)
+  {t:"Offre d'emploi — Animateur(trice) de centre de loisirs",b:`Centre de loisirs Le Soleil – Montréal\nPoste à temps plein dès septembre. Encadrement d'activités sportives et créatives pour enfants 6-12 ans. Formation continue offerte. Ambiance conviviale.`,d:["Temps plein","Montréal","Dès septembre","Formation incluse"],c:"Vous avez lu cette offre et êtes intéressé(e). Vous téléphonez au centre pour obtenir des informations sur le poste et les conditions de travail."},
+  {t:"Offre d'emploi — Réceptionniste bilingue, hôtel 4 étoiles",b:`Hôtel Le Château Frontenac — Québec\nNous cherchons un(e) réceptionniste bilingue (français/anglais). Horaires tournants, week-ends inclus. Expérience en hôtellerie souhaitée mais non obligatoire. Uniforme fourni.`,d:["Bilingue","Horaires tournants","Temps plein","Uniforme fourni"],c:"Vous êtes intéressé(e) par ce poste de réceptionniste. Vous téléphonez à l'hôtel pour vous renseigner sur les conditions de travail et les étapes du recrutement."},
+  {t:"Offre d'emploi — Livreur(se) à vélo, service de repas",b:`FreshDéli – Livraisons à vélo\nNous cherchons des livreurs(ses) dynamiques pour livrer des repas frais en centre-ville. Horaires flexibles, vélo fourni. Rémunération : salaire + pourboires. Aucune expérience requise.`,d:["Flexibles","Vélo fourni","Salaire + tips","Sans expérience"],c:"Cette offre vous intéresse. Vous appelez FreshDéli pour vous renseigner sur les horaires, la zone de livraison et les démarches pour postuler."},
+  {t:"Offre d'emploi — Aide-cuisinier(ère), restaurant québécois",b:`Restaurant La Cabane – Montréal\nRestaurant traditionnel québécois recherche aide-cuisinier(ère) pour renforcer son équipe. Service du midi du lundi au vendredi. Formation sur place assurée. Bonne ambiance garantie.`,d:["Lun.–Ven.","Midi uniquement","Formation sur place","Ambiance sympa"],c:"Vous souhaitez postuler à ce poste. Vous téléphonez au restaurant pour en savoir plus sur les tâches, le salaire et les conditions d'embauche."},
+  {t:"Offre d'emploi — Assistant(e) administratif(ve)",b:`Cabinet comptable Dubois & Associés – Laval\nPoste d'assistant(e) administratif(ve) à temps partiel (25h/sem). Maîtrise du français écrit obligatoire. Connaissance de Word et Excel requise. Stationnement gratuit sur place.`,d:["25h/semaine","Temps partiel","Laval","Stationnement gratuit"],c:"Vous êtes intéressé(e) par ce poste. Vous téléphonez au cabinet pour vous renseigner sur les missions et les critères de sélection."},
+  {t:"Offre d'emploi — Préposé(e) à l'entretien ménager",b:`Résidence Le Boisé – Longueuil\nRésidence pour personnes âgées recherche préposé(e) à l'entretien. Poste permanent, soir et week-end. Équipement fourni. Ambiance familiale et équipe soudée.`,d:["Permanent","Soir & week-end","Équipement fourni","Longueuil"],c:"Vous avez vu cette annonce. Vous téléphonez à la résidence pour obtenir des précisions sur les horaires et les tâches à accomplir."},
+  {t:"Offre d'emploi — Tuteur(trice) de français",b:`École de langues Paroles – Montréal\nNous recrutons des tuteurs(trices) de français pour adultes immigrants. Cours en présentiel ou en ligne. Horaires flexibles selon disponibilités. Rémunération : 22 $/heure.`,d:["22 $/heure","Présentiel/ligne","Horaires flexibles","Adultes immigrants"],c:"Vous souhaitez devenir tuteur(trice) de français. Vous téléphonez à l'école pour vous renseigner sur le profil recherché et les démarches."},
+  {t:"Offre d'emploi — Vendeur(se) en boulangerie artisanale",b:`Boulangerie Au Pain Doré – Québec\nNous recherchons un(e) vendeur(se) souriant(e) pour notre boutique. Samedi et dimanche de 7h à 14h. Dégustation des produits incluse ! Débutants bienvenus.`,d:["Sam.–Dim.","7h–14h","Débutants OK","Pain offert"],c:"Cette annonce vous intéresse. Vous téléphonez à la boulangerie pour savoir comment postuler et si le poste pourrait être étendu en semaine."},
+  {t:"Offre d'emploi — Éducateur(trice) en garderie",b:`Garderie Les Petits Pingouins – Brossard\nPoste temps plein pour éducateur(trice) en petite enfance. Diplôme AEC ou DEC requis. Groupes de 3-5 ans. Avantages sociaux complets. Locaux neufs et lumineux.`,d:["Temps plein","DEC/AEC requis","3–5 ans","Avantages sociaux"],c:"Vous postulez pour ce poste. Vous appelez la garderie pour en savoir plus sur l'équipe, le ratio enfants/adultes et les avantages offerts."},
+  {t:"Offre d'emploi — Caissier(ère) supermarché",b:`Supermarché Metro – Verdun\nPoste à temps partiel pour étudiant(e) ou personne disponible en soirée et week-end. Formation rapide. Ambiance jeune. Possibilité d'évolution vers poste de chef de caisse.`,d:["Temps partiel","Soirs & week-ends","Évolution possible","Verdun"],c:"Vous souhaitez postuler. Vous téléphonez au supermarché pour vous informer sur le nombre d'heures, le salaire et les étapes d'embauche."},
+  {t:"Offre d'emploi — Agent(e) de sécurité",b:`Sécuritas Québec – Divers sites\nRecherche agents(es) de sécurité pour centres commerciaux et événements. Formation offerte si non certifié(e). Travail de jour, soir et nuit. Uniforme fourni. Bonne condition physique requise.`,d:["Formation offerte","Divers sites","Toutes tranches horaires","Uniforme fourni"],c:"Vous avez vu l'annonce. Vous téléphonez pour savoir si une formation est vraiment offerte, quels sites sont concernés et comment s'inscrire."},
+  {t:"Offre d'emploi — Chauffeur(se) de taxi ou VTC",b:`Taxi Coop Montréal\nCherche chauffeurs(ses) titulaires d'un permis de conduire valide. Voiture fournie ou utilisation de votre véhicule personnel. Revenus selon disponibilités. Travail indépendant.`,d:["Permis requis","Voiture fournie ou perso","Revenus variables","Horaires libres"],c:"Cette offre vous intéresse. Vous appelez la coopérative pour savoir quelles sont les exigences exactes, les revenus moyens et les démarches."},
+  {t:"Offre d'emploi — Téléphoniste / service à la clientèle",b:`Assurances Desjardins – Centre d'appels, Lévis\nNous recrutons des conseillers(ères) téléphoniques. Poste en présentiel ou télétravail. Formation de 3 semaines payée. Bilinguisme un atout. Salaire de départ : 21 $/h.`,d:["21 $/h départ","Télétravail possible","Formation payée","Lévis"],c:"Vous êtes intéressé(e). Vous téléphonez pour obtenir des précisions sur le télétravail, les horaires et les étapes de sélection."},
+  {t:"Offre d'emploi — Cuisinier(ère) de collectivité",b:`CISSS de la Montérégie – Hôpital\nPoste permanent à temps complet en cuisine de collectivité. Préparation de repas pour patients. Horaires de jour principalement. Syndicat. Avantages complets.`,d:["Temps complet","Syndicat","Jour principalement","Avantages complets"],c:"Vous avez vu l'offre. Vous téléphonez au service RH pour vous renseigner sur les compétences requises, la formation et les avantages sociaux."},
+  {t:"Offre d'emploi — Préposé(e) aux bénéficiaires",b:`CHSLD Sainte-Anne – Montréal\nFormation DEP en assistance à la personne ou expérience acceptée. Temps partiel ou plein. Horaires de soir disponibles. Ambiance chaleureuse et équipe dévouée.`,d:["DEP ou expérience","Soir disponible","Temps partiel ou plein","Ambiance chaleureuse"],c:"Vous souhaitez postuler. Vous appelez pour en savoir plus sur les horaires de soir, les tâches quotidiennes et le processus de candidature."},
+  {t:"Offre d'emploi — Jardinier(ère) / paysagiste",b:`Jardins Beaumont – Laval\nEntreprise d'aménagement paysager cherche saisonnier(ère) pour la saison printemps-été. Travail en extérieur, permis de conduire requis. Salaire compétitif + véhicule de travail fourni.`,d:["Saisonnier","Printemps–été","Permis requis","Véhicule fourni"],c:"Cette offre vous intéresse. Vous téléphonez pour vous renseigner sur les tâches précises, les horaires et la possibilité de reconduction l'année suivante."},
+  {t:"Offre d'emploi — Technicien(ne) informatique",b:`Clinique IT – Sherbrooke\nNous cherchons un(e) technicien(ne) pour le support aux PME. Déplacements chez les clients. Connaissance Windows et Mac requise. Salaire : 28–35 $/h selon expérience.`,d:["28–35 $/h","Déplacements","Windows & Mac","PME"],c:"Vous avez vu l'offre. Vous téléphonez pour avoir des précisions sur les déplacements, les outils utilisés et les modalités de candidature."},
+  {t:"Offre d'emploi — Commis de bureau / archiviste",b:`Notaire Tremblay & Associés – Trois-Rivières\nRecherche commis de bureau rigoureux(se) pour classement et numérisation de dossiers. Poste à temps partiel, 3 matins par semaine. Bonne maîtrise du français obligatoire.`,d:["3 matins/semaine","Temps partiel","Trois-Rivières","Français obligatoire"],c:"Cette offre vous convient. Vous téléphonez pour connaître le logiciel utilisé, les horaires exacts et la possibilité d'augmenter les heures."},
+  {t:"Offre d'emploi — Agent(e) d'immeuble / concierge",b:`Gestion Immobilière Cœur-du-Quartier – Montréal\nNous cherchons un(e) concierge pour gérer l'entretien courant d'un immeuble de 40 logements. Logement de fonction possible. Disponibilité d'urgence requise.`,d:["40 logements","Logement possible","Urgences","Montréal"],c:"Vous souhaitez postuler. Vous appelez pour en savoir plus sur le logement de fonction, les horaires et les urgences à gérer."},
+  {t:"Offre d'emploi — Photographe événementiel(le)",b:`Studio Lumière – Québec\nRecherche photographe freelance pour mariages, anniversaires et événements corporatifs. Équipement personnel requis. Rémunération : 400–800 $ par événement selon durée.`,d:["Freelance","400–800 $/événement","Équipement requis","Québec"],c:"Vous êtes photographe et intéressé(e). Vous téléphonez au studio pour savoir combien d'événements sont disponibles par mois et comment rejoindre leur réseau."},
+
+  // LOCATION & SERVICES (15 sujets)
+  {t:"À louer — Appartement 3½ rénové, Plateau-Mont-Royal",b:`Beau 3½ entièrement rénové, 2e étage, très lumineux. Cuisine ouverte, balcon, planchers de bois franc. Chauffage et eau chaude inclus. Animaux acceptés sous conditions. Disponible 1er juillet. Loyer : 1 450 $/mois.`,d:["1 450 $/mois","Balcon","Tout inclus","Animaux OK"],c:"Vous cherchez un appartement. Vous téléphonez au propriétaire pour obtenir des informations supplémentaires et organiser une visite."},
+  {t:"À louer — Studio meublé, Vieux-Montréal",b:`Studio entièrement meublé, 4e étage avec ascenseur. Vue sur le fleuve. Toutes charges incluses (Internet, câble, électricité). Disponible immédiatement. Loyer : 1 100 $/mois.`,d:["1 100 $/mois","Tout inclus","Meublé","Vue fleuve"],c:"Vous cherchez un logement rapidement. Vous appelez le propriétaire pour connaître les conditions d'entrée, la durée minimale du bail et les règles de la résidence."},
+  {t:"À louer — Maison avec cour arrière, Laval",b:`Jolie maison 4½, cour clôturée, garage simple. Quartier résidentiel calme, proche des écoles et du métro. Pas d'animaux. Loyer : 1 900 $/mois, disponible 1er août.`,d:["1 900 $/mois","Cour clôturée","Garage","Proche métro"],c:"Cette maison vous intéresse. Vous téléphonez au propriétaire pour vous renseigner sur les conditions de location et organiser une visite."},
+  {t:"Chambre en colocation — 3 colocataires, Québec",b:`Chambre meublée dans grande maison partagée par 3 jeunes professionnels. Quartier calme, bus à 5 min. Internet et charges inclus. Cherchons personne propre, non-fumeur. 700 $/mois.`,d:["700 $/mois","Tout inclus","Non-fumeur","Bus 5 min"],c:"Vous cherchez une chambre. Vous téléphonez pour avoir des informations sur les colocataires, les espaces partagés et les règles de vie commune."},
+  {t:"À louer — Local commercial, centre-ville de Montréal",b:`Local de 80 m² en rez-de-chaussée, grande vitrine, idéal boutique ou bureau. Bail commercial, 3 ans minimum. Loyer : 2 800 $/mois. Disponible novembre. Stationnement possible.`,d:["80 m²","Rez-de-chaussée","2 800 $/mois","Bail 3 ans min."],c:"Vous envisagez d'ouvrir une boutique. Vous téléphonez au propriétaire pour en savoir plus sur les travaux autorisés et les conditions du bail."},
+  {t:"À louer — Chalet pour les vacances, Laurentides",b:`Chalet 4 saisons, 3 chambres, bord du lac, accès canot et kayak inclus. Disponible semaines du 21 juillet au 4 août. Tarif : 1 200 $/semaine. Dépôt de 50 % requis.`,d:["Bord du lac","3 chambres","1 200 $/semaine","Canot & kayak"],c:"Vous cherchez un chalet pour vos vacances. Vous téléphonez pour savoir si les dates sont disponibles et connaître les modalités de réservation."},
+  {t:"Service — Garde d'animaux à domicile",b:`PawCare – Montréal\nGarde de chiens et chats à votre domicile pendant vos absences. Promenades, repas, câlins garantis. Tarif : 35 $/jour. Références disponibles sur demande. Zone : Montréal et Laval.`,d:["35 $/jour","À domicile","Montréal & Laval","Références disponibles"],c:"Vous partez en voyage. Vous téléphonez à PawCare pour en savoir plus sur les gardiens disponibles, leur expérience et les modalités de réservation."},
+  {t:"Service — Cours de conduite, auto-école",b:`Auto-École Sécuroute – Brossard\nCours de conduite théoriques et pratiques. Leçons individuelles de 60 min. Forfait de 10 leçons : 550 $. Véhicule récent. Instructeurs certifiés. Disponibilités en soirée et week-end.`,d:["550 $ pour 10","60 min/leçon","Soirs & week-ends","Instructeurs certifiés"],c:"Vous voulez apprendre à conduire. Vous téléphonez à l'auto-école pour vous renseigner sur les disponibilités, les délais et les étapes pour obtenir votre permis."},
+  {t:"Service — Déménagement, entreprise locale",b:`DéménaFacile – Montréal\nService de déménagement professionnel. Camion + 2 déménageurs. Tarif horaire : 120 $/h. Emballage disponible en option. Réservation au moins 1 semaine à l'avance recommandée.`,d:["120 $/h","2 déménageurs","Emballage option","Réservation 1 sem."],c:"Vous déménagez dans 3 semaines. Vous téléphonez à DéménaFacile pour connaître les disponibilités, le tarif exact selon votre situation et les options disponibles."},
+  {t:"Service — Réparation d'électroménagers à domicile",b:`TechnoFix – Longueuil\nRéparation de lave-linge, lave-vaisselle, four et réfrigérateur à domicile. Diagnostic gratuit. Pièces garanties 6 mois. Disponibilité sous 48h. Devis fourni avant intervention.`,d:["Diagnostic gratuit","48h de dispo","Pièces garanties 6 mois","Devis gratuit"],c:"Votre lave-vaisselle est en panne. Vous téléphonez à TechnoFix pour obtenir un rendez-vous et comprendre les coûts potentiels de la réparation."},
+  {t:"Service — Baby-sitting, garde d'enfants le soir",b:`Agence Petits Anges – Sherbrooke\nBaby-sitters diplômé(e)s disponibles soirs et week-ends. Tarif : 18 $/h. Minimum 3 heures. Profil de chaque gardien(ne) disponible en ligne. Réservation 48h à l'avance.`,d:["18 $/h","Minimum 3h","Soirs & week-ends","Diplômé(e)s"],c:"Vous avez besoin d'un(e) baby-sitter régulier(ère). Vous appelez l'agence pour vous renseigner sur les profils disponibles et les modalités d'inscription."},
+  {t:"Service — Cours particuliers de mathématiques",b:`MathExpert – En ligne ou à domicile\nCours de maths pour collège, lycée et université. Professeurs diplômés. Séances de 1h à 1h30. Tarif : 45–65 $/h selon niveau. Première séance d'essai à tarif réduit.`,d:["45–65 $/h","En ligne ou domicile","1ère séance réduite","Diplômés"],c:"Votre enfant a des difficultés en maths. Vous téléphonez à MathExpert pour organiser un cours d'essai et évaluer le niveau de l'enseignant."},
+  {t:"Service — Traiteur pour événement privé",b:`Saveurs du Québec – Traiteur\nNous préparons vos buffets, repas assis et cocktails pour mariages, anniversaires et soirées d'entreprise. Menus personnalisables. Livraison et service à table disponibles. Devis gratuit.`,d:["Menus personnalisables","Livraison disponible","Service à table","Devis gratuit"],c:"Vous organisez un anniversaire pour 30 personnes. Vous téléphonez au traiteur pour connaître les options de menus, les tarifs et les délais de commande."},
+  {t:"Service — Plombier d'urgence",b:`PlombPro – Disponible 24h/24\nIntervention rapide en cas de fuite, débouchage ou panne de chauffe-eau. Déplacement : 80 $. Main-d'œuvre : 95 $/h. Devis sur place avant travaux. Zone : Grand Montréal.`,d:["24h/24","80 $ déplacement","95 $/h","Devis sur place"],c:"Vous avez une fuite d'eau. Vous téléphonez à PlombPro pour connaître les délais d'intervention et les coûts approximatifs."},
+  {t:"Service — Cours de yoga en ligne",b:`YogaZen – Cours hebdomadaires\nCours de yoga pour tous niveaux, en direct via Zoom. Lundi, mercredi, vendredi de 7h à 8h. Abonnement mensuel : 55 $. Premier cours gratuit. Tapis non inclus.`,d:["55 $/mois","Zoom","3x/semaine","1er cours gratuit"],c:"Vous cherchez un cours de yoga régulier. Vous appelez YogaZen pour vous renseigner sur les niveaux proposés, le matériel et l'inscription."},
+
+  // LOISIRS & ACTIVITÉS (20 sujets)
+  {t:"Club de randonnée — Les Marcheurs du Québec",b:`Club convivial ouvert à tous les niveaux. Sorties hebdomadaires en forêt, montagne et parcs nationaux. Cotisation annuelle : 40 $ (famille : 60 $). Première sortie découverte gratuite.`,d:["Tous niveaux","40 $/an","Hebdomadaire","1ère sortie gratuite"],c:"Vous souhaitez rejoindre ce club. Vous téléphonez pour connaître le calendrier des prochaines sorties, les distances et les équipements recommandés."},
+  {t:"Inscription — Cours de natation adultes, Piscine Olympique",b:`Cours pour adultes débutants et intermédiaires. Mardis et jeudis, 18h30–19h30. Session de 10 cours : 120 $. Adhésion annuelle requise : 50 $. Bonnet et lunettes fournis.`,d:["Mar.–Jeu.","18h30–19h30","10 cours = 120 $","Matériel fourni"],c:"Vous voulez vous inscrire. Vous téléphonez pour savoir si des places sont disponibles, quel niveau vous convient et comment réserver."},
+  {t:"Événement — Vente de garage collective, Rosemont",b:`Grande vente organisée par l'Association du quartier Rosemont. 40+ exposants. Meubles, vêtements, livres, électronique. Samedi 14 juin, 8h–16h. Entrée libre. Parking à proximité.`,d:["Sam. 14 juin","8h–16h","Entrée libre","40+ exposants"],c:"Vous souhaitez participer comme vendeur(se). Vous appelez l'organisateur pour savoir comment vous inscrire et connaître les règles."},
+  {t:"Ateliers de cuisine québécoise — École Bonne Fourchette",b:`Découvrez les saveurs authentiques du Québec avec des chefs professionnels. Petits groupes (8 max). Samedis, 10h–13h, sur 4 semaines. Tarif : 180 $ tout inclus.`,d:["8 pers. max","Samedis","180 $ tout inclus","4 semaines"],c:"Vous êtes intéressé(e) par ces ateliers. Vous téléphonez pour vous renseigner sur les prochaines sessions disponibles et les thèmes abordés."},
+  {t:"Cours de danse — Salsa et bachata pour débutants",b:`Studio Ritmo Libre – Montréal\nCours de salsa et bachata pour débutants absolus. Lundi soir, 19h–20h30. 8 semaines : 160 $. Aucun partenaire requis. Tenue décontractée, chaussures à semelle lisse conseillées.`,d:["Lundi 19h","8 semaines","160 $","Sans partenaire requis"],c:"Vous voulez apprendre à danser. Vous appelez le studio pour savoir si les cours de salsa et de bachata sont séparés, et si des places sont encore disponibles."},
+  {t:"Club de lecture — Bibliothèque de Laval",b:`Club de lecture mensuel pour adultes. Livres en français et anglais. Réunion le 2e jeudi du mois, 18h30. Inscription gratuite. Prochain livre : « Le Monde selon Garp ». Café offert.`,d:["Gratuit","Mensuel","Jeudi 18h30","Café offert"],c:"Vous adorez lire. Vous téléphonez à la bibliothèque pour vous inscrire au club et vous renseigner sur les prochains titres et le déroulement des séances."},
+  {t:"Tournoi de badminton — Association sportive de Longueuil",b:`Tournoi ouvert à tous niveaux. Catégories : simple homme, simple dame, double mixte. Frais d'inscription : 25 $ par personne. Date : samedi 10 mai. Lieu : Centre sportif Claude-Robillard.`,d:["Tous niveaux","25 $/pers.","Sam. 10 mai","Doubles mixtes OK"],c:"Vous voulez participer. Vous appelez pour vous inscrire, savoir comment se déroule le tournoi et connaître les règles de classement."},
+  {t:"Cours de peinture aquarelle — Centre culturel de Brossard",b:`Cours pour adultes débutants et intermédiaires. Vendredis 14h–16h. Sessions de 8 cours : 140 $. Matériel de base inclus. Places limitées à 10 participants. Inscription par téléphone.`,d:["Vendredi 14h–16h","140 $ pour 8","10 places max","Matériel inclus"],c:"Vous souhaitez apprendre l'aquarelle. Vous téléphonez au centre culturel pour connaître les prochaines sessions, le niveau requis et le matériel supplémentaire conseillé."},
+  {t:"Abonnement salle de sport — Énergie Fitness",b:`Énergie Fitness – Verdun\nSalle équipée de cardio, musculation, cours collectifs. Abonnement mensuel : 45 $. Accès illimité. Horaires : 6h–23h, 7j/7. Pas de frais d'inscription en ce moment. Cours de spinning inclus.`,d:["45 $/mois","6h–23h 7j/7","Spinning inclus","Sans frais d'inscription"],c:"Vous voulez reprendre le sport. Vous appelez pour vous renseigner sur les équipements disponibles, les cours collectifs et la procédure d'abonnement."},
+  {t:"Sortie culturelle — Visite guidée du Vieux-Montréal",b:`Visites guidées à pied du Vieux-Montréal. Durée : 2h. Samedi et dimanche, 10h et 14h. Tarif : 22 $ adulte, 12 $ enfant. Réservation recommandée. Guide bilingue disponible.`,d:["2h de visite","22 $/adulte","Sam.–Dim.","Bilingue disponible"],c:"Vous voulez visiter le Vieux-Montréal avec votre famille. Vous téléphonez pour réserver et connaître les points de rendez-vous et les thèmes des visites."},
+  {t:"Cours de photographie numérique — Studio Pixel",b:`Apprentissage de votre appareil photo reflex ou hybride. 6 séances de 2h. Samedis, 10h–12h. Tarif : 220 $. Petit groupe de 6 personnes max. Sorties pratiques en ville incluses.`,d:["220 $ pour 6","Samedis","6 pers. max","Sorties en ville"],c:"Vous venez d'acheter un appareil photo et souhaitez apprendre à bien l'utiliser. Vous téléphonez au studio pour vous renseigner sur le programme et les prochaines dates."},
+  {t:"Excursion — Observation des baleines, Tadoussac",b:`Excursion en bateau pneumatique ou bateau confort. Durée : 2h30. Départs à 9h et 13h. Tarif : 65 $ adulte. Réservation obligatoire. Gilets fournis. Saison : juin–octobre.`,d:["65 $/adulte","2h30","Juin–octobre","Gilets fournis"],c:"Vous planifiez un séjour à Tadoussac. Vous téléphonez pour réserver une sortie et savoir quelle formule (pneumatique ou confort) est recommandée selon la météo."},
+  {t:"Théâtre amateur — Casting ouvert au public",b:`La Troupe du Rideau Rouge – Montréal\nNous cherchons des comédiens(nes) amateurs pour notre prochaine pièce. Aucune expérience requise. Répétitions les mardis soir. Première en novembre. Inscription gratuite.`,d:["Gratuit","Mardis soir","Novembre","Sans expérience"],c:"Vous avez toujours voulu faire du théâtre. Vous téléphonez à la troupe pour savoir en quoi consiste le casting, le temps d'engagement et le type de pièce."},
+  {t:"Cours de menuiserie — Centre d'artisanat de Québec",b:`Initiation à la menuiserie pour adultes. Créez votre propre meuble en bois massif ! 8 séances de 3h. Samedi matin. Matériaux et outils fournis. Tarif : 280 $. 8 participants max.`,d:["280 $","8 séances","Samedi matin","Matériaux inclus"],c:"Ce cours vous attire. Vous téléphonez pour savoir quel type de meuble vous allez fabriquer, le niveau de difficulté et si des places sont disponibles."},
+  {t:"Club de yoga et méditation — Studio Sérénité",b:`Sessions hebdomadaires de yoga et méditation guidée. Jeudi soir, 19h–20h30. Tous niveaux. Abonnement mensuel : 60 $ ou 10 $ la séance. Tapis disponibles sur place. Stationnement gratuit.`,d:["Jeudi 19h","60 $/mois ou 10 $","Tous niveaux","Tapis disponibles"],c:"Vous cherchez une activité relaxante. Vous téléphonez au studio pour vous inscrire et savoir quelle tenue est recommandée et si une séance d'essai est possible."},
+  {t:"Camp de jour — Activités pour enfants, été",b:`Camp Évasion – Repentigny\nCamp de jour estival pour enfants 6–12 ans. Activités sportives, artistiques et nature. Semaines du 28 juin au 15 août. Tarif : 250 $/semaine. Service de garde matin et soir disponible.`,d:["250 $/semaine","6–12 ans","Été","Garde matin/soir"],c:"Vous cherchez un camp pour votre enfant. Vous téléphonez à Camp Évasion pour connaître les activités proposées, les groupes d'âge et les disponibilités."},
+  {t:"Festival — Bénévoles recherchés, Festival d'été de Québec",b:`Festival d'été de Québec\nNous recrutons des bénévoles pour l'édition de juillet. Missions : accueil, billetterie, logistique. Avantages : entrée gratuite aux spectacles, repas offerts, t-shirt officiel.`,d:["Juillet","Entrée gratuite","Repas offerts","T-shirt officiel"],c:"Vous souhaitez être bénévole au festival. Vous téléphonez pour vous informer sur les disponibilités requises, les missions proposées et les démarches d'inscription."},
+  {t:"Cours de self-défense — Académie Martial Arts",b:`Cours de self-défense pour femmes et hommes. Niveau débutant. Mardi et jeudi soir, 20h–21h15. 12 séances : 180 $. Aucun équipement requis. Tenue de sport nécessaire.`,d:["180 $ pour 12","Mar.–Jeu.","Débutants","Sans équipement"],c:"Vous voulez apprendre à vous défendre. Vous téléphonez à l'académie pour vous renseigner sur l'enseignant, le style enseigné et les prochains groupes disponibles."},
+  {t:"Sortie en kayak — Club Aventure-Nature",b:`Sorties guidées en kayak de mer sur le Saint-Laurent. Niveaux débutant et intermédiaire. Départs le dimanche matin. Kayak et équipement fournis. Tarif : 75 $ par sortie. Réservation obligatoire.`,d:["75 $/sortie","Dimanche matin","Tout équipement fourni","Réservation obligatoire"],c:"Vous souhaitez faire du kayak pour la première fois. Vous appelez le club pour connaître les conditions physiques requises et les prochaines dates disponibles."},
+  {t:"Concert — Chorale de la Maison symphonique",b:`La Chorale populaire de Montréal recrute de nouveaux membres. Répétitions tous les mardis, 19h–21h30. Répertoire varié : classique, gospel, pop. Aucune lecture de solfège requise. Cotisation : 120 $/an.`,d:["Mardi 19h","120 $/an","Tous styles","Solfège non requis"],c:"Vous aimez chanter et voulez rejoindre une chorale. Vous téléphonez pour savoir si une audition est requise et comment rejoindre l'ensemble."},
+
+  // SERVICES PUBLICS & DIVERS (20 sujets)
+  {t:"Service de garde parascolaire — École Les Érables",b:`Service de garde matin (7h–8h30) et après-midi (15h–18h). De la maternelle au 3e cycle. Aide aux devoirs incluse. Places limitées. Inscription avant le 15 août. Tarif selon revenu familial.`,d:["Matin & après-midi","Mat.→6e","Aide aux devoirs","Tarif modulé"],c:"Vous souhaitez inscrire votre enfant. Vous téléphonez à l'école pour connaître les modalités d'inscription et les activités parascolaires proposées."},
+  {t:"Clinique médicale — Prise de rendez-vous",b:`Clinique Santé Plus – Saint-Laurent\nNouveau médecin de famille disponible pour de nouveaux patients. Consultations générales et suivis. Rendez-vous téléphonique ou en ligne. Carte RAMQ obligatoire.`,d:["Nouveau médecin","Nouveaux patients","Carte RAMQ","Saint-Laurent"],c:"Vous cherchez un médecin de famille. Vous téléphonez à la clinique pour prendre rendez-vous et savoir quels documents apporter à la première consultation."},
+  {t:"Bibliothèque — Inscription et services",b:`Bibliothèque municipale de Brossard\nInscription gratuite pour les résidents. Prêt de livres, DVD, jeux de société. Accès Wi-Fi gratuit. Heures d'ouverture : lun.–ven. 9h–20h, sam.–dim. 10h–17h.`,d:["Gratuit","Wi-Fi inclus","Lun.–Dim.","Jeux & DVDs"],c:"Vous venez d'emménager dans le quartier. Vous téléphonez pour vous inscrire et savoir quels documents vous devez apporter."},
+  {t:"Centre de recyclage — Dépôt d'objets encombrants",b:`Centre Éco-Dépôt – Montréal\nAcceptez les vieux électroménagers, meubles, matériaux de construction. Gratuit pour les résidents avec preuve de domicile. Ouvert samedi et dimanche, 8h–16h.`,d:["Gratuit","Sam.–Dim.","8h–16h","Preuve de domicile"],c:"Vous voulez vous débarrasser de vieux meubles. Vous téléphonez au centre pour savoir quels objets sont acceptés et si vous avez besoin d'un rendez-vous."},
+  {t:"Office de tourisme — Informations sur la région",b:`Office de tourisme des Laurentides\nRenseignements sur les activités, hébergements et restaurants de la région. Brochures disponibles en plusieurs langues. Ouvert tous les jours en haute saison.`,d:["Tous les jours","Multilingue","Brochures gratuites","Laurentides"],c:"Vous préparez un voyage dans les Laurentides. Vous téléphonez à l'office pour obtenir des recommandations d'activités selon la saison et votre budget."},
+  {t:"Cours de français — Centre d'intégration pour immigrants",b:`Centre Accueil Plus – Montréal\nCours de français gratuits pour nouveaux arrivants. Niveaux débutant, intermédiaire et avancé. Lundi, mercredi, vendredi, 9h–12h. Garde d'enfants disponible sur place.`,d:["Gratuit","3 niveaux","Lun./Mer./Ven.","Garde d'enfants"],c:"Vous souhaitez améliorer votre français. Vous téléphonez au centre pour vous inscrire et savoir quel niveau vous convient."},
+  {t:"Pharmacie — Service de livraison à domicile",b:`Pharmacie Santé Directe – Longueuil\nLivraison de médicaments sur ordonnance à domicile, sous 4h. Frais : 5 $ par livraison. Ordonnance par fax ou en ligne. Disponible du lundi au samedi.`,d:["5 $/livraison","Sous 4h","Lun.–Sam.","Ordonnance en ligne"],c:"Vous avez du mal à vous déplacer. Vous téléphonez à la pharmacie pour vous renseigner sur le service de livraison et savoir comment transmettre votre ordonnance."},
+  {t:"Espace de coworking — Location de bureau à la journée",b:`CoWork Montréal – Centre-ville\nBureau privatif ou espace partagé. Tarif : 25 $/demi-journée, 40 $/journée. Internet très haut débit, café et thé inclus. Réservation en ligne ou par téléphone. Accès 7h–20h.`,d:["40 $/journée","Internet HD","Café inclus","7h–20h"],c:"Vous cherchez un endroit pour travailler pour quelques jours. Vous téléphonez pour connaître les équipements disponibles et la procédure de réservation."},
+  {t:"Location de voiture — Week-end",b:`Auto-Location DriveSmart – Laval\nLocation de voitures compactes, familiales et SUV. Tarif week-end (ven.–lun.) : à partir de 85 $. Kilométrage illimité. Assurance incluse. Permis + carte de crédit requis.`,d:["Dès 85 $/week-end","Km illimité","Assurance incluse","Permis + carte requis"],c:"Vous avez besoin d'une voiture pour le week-end. Vous téléphonez pour connaître la disponibilité des modèles, le tarif exact et les documents nécessaires."},
+  {t:"Cours de premiers secours — Croix-Rouge",b:`Croix-Rouge Canadienne – Montréal\nFormation premiers secours et RCR. Durée : 1 journée (9h–17h). Tarif : 95 $. Attestation reconnue valide 3 ans. Prochaines dates : 12 et 26 avril. Places limitées.`,d:["95 $","1 journée","Attestation 3 ans","Places limitées"],c:"Vous souhaitez vous former aux premiers secours. Vous téléphonez pour vous inscrire et savoir si l'attestation est reconnue par votre employeur."},
+  {t:"Déchetterie — Heures et acceptation",b:`Écocentre – Arrondissement de Verdun\nDépôt de matières recyclables, déchets dangereux et encombrants. Ouvert mercredi et samedi, 9h–16h. Gratuit pour résidents. Passeport bleu requis.`,d:["Mer. & Sam.","9h–16h","Gratuit","Passeport bleu"],c:"Vous voulez apporter de vieilles peintures et des piles usées. Vous téléphonez pour confirmer que ces matières sont acceptées et ce qu'il faut apporter."},
+  {t:"Association communautaire — Bénévolat",b:`Moisson Montréal — Banque alimentaire\nRecherche de bénévoles pour le tri alimentaire. Créneaux : mardi et jeudi matin, 8h30–12h. Aucune expérience requise. Tenue de travail fournie. Bonne cause garantie.`,d:["Mardis & Jeudis","8h30–12h","Sans expérience","Tenue fournie"],c:"Vous voulez faire du bénévolat. Vous téléphonez à Moisson Montréal pour vous inscrire et savoir comment vous préparer pour votre première journée."},
+  {t:"Garderie — Places disponibles",b:`Garderie familiale Les Petits Explorateurs – Boucherville\nPlaces disponibles pour enfants 18 mois–4 ans. Subventionnée (contribution réduite). Horaires : 7h15–17h30. Repas et collations fournis. Liste d'attente possible.`,d:["18 mois–4 ans","Subventionnée","7h15–17h30","Repas inclus"],c:"Vous cherchez une garderie pour votre enfant. Vous téléphonez pour savoir si des places sont disponibles et comment vous inscrire sur la liste d'attente."},
+  {t:"Location salle — Événement privé",b:`Centre communautaire de Verdun\nSalle polyvalente de 80 personnes en location pour anniversaires, réunions, fêtes. Tarif : 150 $/4h. Cuisine équipée incluse. Stationnement gratuit. Réservation à l'avance obligatoire.`,d:["150 $/4h","80 pers.","Cuisine incluse","Stationnement gratuit"],c:"Vous planifiez un anniversaire. Vous téléphonez au centre pour vérifier les disponibilités, les règles concernant la décoration et les boissons alcoolisées."},
+  {t:"Programme sportif municipal — Inscriptions automne",b:`Ville de Laval — Programme Loisirs\nInscriptions aux cours de natation, arts martiaux, yoga et tennis pour l'automne. Tarifs réduits pour résidents. En ligne ou par téléphone. Ouverture des inscriptions le 15 août.`,d:["Résidents : tarif réduit","Dès le 15 août","En ligne ou tél.","Natation, yoga, tennis…"],c:"Vous souhaitez inscrire votre famille à plusieurs activités. Vous téléphonez pour connaître les délais, les créneaux disponibles et les tarifs pour familles."},
+];
+
+// ============================================================
+// 75 SUJETS SECTION B — Dialogue de conviction entre amis
+// ============================================================
+const sujetsB = [
+  // VOYAGES & AVENTURE (18 sujets)
+  {badge:"Annonce · Voyage",titre:"Échangez votre logement pour les vacances !",texte:`Partez gratuitement dans 60 pays en échangeant votre logement avec un autre membre. Échangez votre appartement contre une villa en Italie ou un loft à Paris. Des milliers de membres actifs. Inscription gratuite. Premier échange possible dès 3 mois. echangelogement.ca`,infos:["Gratuit","60+ pays","3 mois minimum","Milliers de membres"],mission:"Vous avez lu cette annonce. Présentez-la à votre ami(e) et essayez de le/la convaincre d'échanger son logement pour les prochaines vacances.",objections:[{i:"😟",c:"Logement",t:"Mon appartement est petit et pas décoré, je pense qu'il n'intéressera personne."},{i:"🔒",c:"Sécurité",t:"Laisser des inconnus vivre chez moi pendant que je suis absent(e)... j'aurais trop peur qu'ils abîment mes affaires."},{i:"📅",c:"Organisation",t:"C'est trop compliqué à organiser, il faut que les dates correspondent exactement."},{i:"💸",c:"Argent",t:"Même si c'est gratuit, il faut quand même payer l'avion et les activités sur place."},{i:"🌍",c:"Destination",t:"J'aimerais aller en Floride, mais je doute qu'il y ait des logements disponibles là-bas."},{i:"🤷",c:"Expérience",t:"Je ne connais personne qui l'a fait, j'aurais peur de tomber sur des gens peu soigneux."}]},
+  {badge:"Annonce · Aventure",titre:"Premier vol en montgolfière — Survol de la région de Québec",texte:`Vivez une expérience inoubliable ! Survolez les forêts, le fleuve Saint-Laurent et les châteaux à bord d'une montgolfière avec un guide francophone expérimenté. Départ au lever du soleil. Durée : 1h. Champagne offert à l'atterrissage. Prix : 195 $/pers. ballonquebec.ca`,infos:["195 $/pers.","1h de vol","Guide inclus","Champagne offert"],mission:"Vous avez lu cette annonce et voulez convaincre votre ami(e) de venir faire ce vol en montgolfière avec vous. Répondez à ses hésitations.",objections:[{i:"😨",c:"Vertige",t:"J'ai le vertige, je ne pourrais pas rester là-haut sans paniquer."},{i:"💸",c:"Budget",t:"195 € pour une heure, c'est vraiment trop cher pour moi."},{i:"⛅",c:"Météo",t:"Et si le temps est mauvais ce jour-là ? On devra tout annuler ?"},{i:"🤢",c:"Mal de transport",t:"J'ai souvent le mal des transports, j'aurais peur d'être malade là-haut."},{i:"⏰",c:"Horaire",t:"Se lever à l'aube un week-end pour ça… vraiment ce n'est pas mon truc."},{i:"🏰",c:"Intérêt",t:"On peut très bien visiter les châteaux à pied, pourquoi payer autant pour les voir d'en haut ?"}]},
+  {badge:"Annonce · Séjour",titre:"Croisière d'exploration — Groenland et icebergs",texte:`Partez naviguer vers les terres les plus sauvages du monde ! Naviguez entre les icebergs du Groenland dans un cadre chaleureux et raffiné. Guide français à bord, conférences chaque soir. 8 jours / 7 nuits. À partir de 950 €. scandivelen.fr`,infos:["8 jours","950 € min.","Guide français","Conférences incluses"],mission:"Vous êtes passionné(e) d'aventure et voulez convaincre votre ami(e) sédentaire de partir en croisière d'exploration avec vous.",objections:[{i:"🥶",c:"Froid",t:"Il fait un froid glacial dans ces régions, c'est impossible pour moi."},{i:"🌊",c:"Mal de mer",t:"J'ai le mal de mer, je ne pourrais pas supporter une semaine en bateau."},{i:"💸",c:"Prix",t:"950 €, c'est seulement le tarif de base, ça doit coûter bien plus en réalité."},{i:"📅",c:"Durée",t:"8 jours, c'est trop court pour vraiment découvrir ces régions."},{i:"🏖️",c:"Vacances",t:"Les croisières pour moi c'est le soleil et les plages, pas la banquise."},{i:"🌍",c:"Écologie",t:"Ces régions devraient rester protégées, le tourisme ne fait qu'accélérer la fonte des glaces."}]},
+  {badge:"Annonce · Voyage",titre:"Vacances sur un bateau — Location sans permis sur le Saint-Laurent",texte:`Le bonheur sur l'eau ! Explorez les plus belles régions du Québec à bord de nos bateaux confortables. Location sans permis de conduire, de 2 à 12 personnes. Briefing technique fourni. Assistance 24h/24. À partir de 150 $/jour. bateaux-quebec.ca`,infos:["Sans permis","2–12 pers.","150 $/j","Assistance 24h"],mission:"Vous adorez l'eau et voulez convaincre votre ami(e) de partir avec vous en vacances en bateau sur le Saint-Laurent.",objections:[{i:"🚤",c:"Expérience",t:"Je n'ai jamais conduit de bateau, j'aurais peur de faire une bêtise."},{i:"🤢",c:"Santé",t:"J'ai souvent le mal de mer, même sur des rivières calmes."},{i:"💸",c:"Coût",t:"150 $ par jour, ça fait beaucoup sur une semaine avec les repas et l'essence."},{i:"🛠️",c:"Panne",t:"Et si le bateau tombe en panne au milieu de l'eau ?"},{i:"🏊",c:"Sécurité",t:"Je ne nage pas très bien, j'aurais peur de tomber à l'eau."},{i:"🛏️",c:"Confort",t:"Dormir dans une cabine de bateau, ça ne doit pas être très confortable."}]},
+  {badge:"Annonce · Trek",titre:"Ascension de l'Aconcagua — Argentine, 23 jours",texte:`Ascension de l'Aconcagua (6 959 m), plus haut sommet des Amériques ! 23 jours dont 11 à pied, 4 à 7h de marche par jour. Guide local francophone. Nuits en auberge et tente. Prix : environ 1 500 € du 30 juillet au 21 août.`,infos:["6 959 m","23 jours","Guide francophone","1 500 €"],mission:"Vous êtes sportif(ve) et voulez convaincre votre ami(e) de vous accompagner pour l'ascension de l'Aconcagua.",objections:[{i:"💸",c:"Budget",t:"1 500 €, c'est bien trop cher pour moi en ce moment."},{i:"📅",c:"Congés",t:"Je ne peux pas me libérer 23 jours de travail, c'est impossible."},{i:"🏋️",c:"Forme",t:"Je ne me sens pas assez sportif(ve) pour une telle expédition."},{i:"⛺",c:"Camping",t:"Dormir en tente à 6 000 m d'altitude, sans douche… non merci."},{i:"🌬️",c:"Altitude",t:"L'altitude me fait peur, j'ai eu des problèmes lors d'un séjour en montagne."},{i:"👥",c:"Groupe",t:"23 jours avec des inconnus, si on ne s'entend pas ça va être très long."}]},
+  {badge:"Annonce · Road trip",titre:"Road trip en camping-car — Canada côte à côte",texte:`Louez un camping-car et traversez le Canada de Montréal à Vancouver ! Liberté totale de votre itinéraire. Camping-cars entièrement équipés (cuisine, douche, literie). Location : à partir de 180 $/nuit. Kilométrage inclus. campingcar-canada.ca`,infos:["180 $/nuit","Km inclus","Cuisine & douche","Montréal→Vancouver"],mission:"Vous avez toujours rêvé de traverser le Canada en camping-car. Vous voulez convaincre votre ami(e) de vous accompagner pour un road trip cet été.",objections:[{i:"💸",c:"Coût",t:"180 $ par nuit plus l'essence et la nourriture, ça va coûter une fortune."},{i:"📅",c:"Durée",t:"Pour traverser le Canada il faut au moins 3 semaines, je n'ai pas autant de vacances."},{i:"🛻",c:"Conduite",t:"Je n'ai jamais conduit un véhicule aussi grand, j'aurais peur de l'abîmer."},{i:"🏨",c:"Confort",t:"Je préfère dormir dans un vrai lit dans un hôtel, pas dans un camping-car."},{i:"📶",c:"Connectivité",t:"On va se retrouver sans Internet dans des zones reculées, c'est compliqué pour mon travail."},{i:"🌧️",c:"Météo",t:"Et si la météo est mauvaise pendant tout le voyage ?"}]},
+  {badge:"Annonce · Séjour linguistique",titre:"Séjour linguistique au Mexique — Immersion totale en espagnol",texte:`Apprenez l'espagnol en vivant chez l'habitant à Oaxaca ! 2 semaines de cours intensifs le matin, activités culturelles l'après-midi. Famille d'accueil incluse. Repas compris. À partir de 1 200 €. spanish-oaxaca.com`,infos:["1 200 €","2 semaines","Famille d'accueil","Repas inclus"],mission:"Vous avez fait ce séjour et c'était formidable. Vous essayez de convaincre votre ami(e) de partir aussi pour apprendre l'espagnol.",objections:[{i:"✈️",c:"Distance",t:"Le Mexique c'est loin, le vol seul doit coûter 600 € en plus du séjour."},{i:"🏠",c:"Famille d'accueil",t:"Vivre chez des inconnus pendant 2 semaines, je ne me sens pas à l'aise avec ça."},{i:"🌡️",c:"Chaleur",t:"Je supporte mal la chaleur et il paraît qu'il fait très chaud là-bas."},{i:"🔐",c:"Sécurité",t:"On entend tellement de mauvaises choses sur la sécurité au Mexique."},{i:"🗣️",c:"Niveau",t:"Je ne parle pas un mot d'espagnol, est-ce que les cours sont vraiment adaptés aux débutants ?"},{i:"💊",c:"Santé",t:"J'ai peur des problèmes de santé liés à la nourriture locale ou à l'eau."}]},
+  {badge:"Annonce · Escapade",titre:"Week-end en amoureux — Spa et gastronomie en Estrie",texte:`Forfait week-end pour 2 : hébergement en chalet privé avec bain nordique, accès au spa, dîner gastronomique du terroir et petit-déjeuner inclus. À partir de 450 $ pour 2 nuits. Disponible toute l'année. spa-estrie.ca`,infos:["450 $/2 nuits","Bain nordique","Dîner gastronomique","Toute l'année"],mission:"Vous voulez offrir un week-end romantique à votre ami(e). Vous le/la convainquez de partir en escapade en Estrie.",objections:[{i:"💸",c:"Budget",t:"450 $ pour un week-end, c'est beaucoup trop cher pour quelques jours seulement."},{i:"📅",c:"Timing",t:"Je ne vois pas comment on peut s'absenter un week-end en ce moment avec tout ce qu'on a à faire."},{i:"🐈",c:"Animaux",t:"On ne peut pas partir et laisser nos animaux seuls à la maison."},{i:"🧘",c:"Spa",t:"Franchement, un spa ce n'est pas ma priorité, je préfère faire des activités en plein air."},{i:"🌿",c:"Activités",t:"Deux jours à se détendre dans un spa, je vais m'ennuyer ferme."},{i:"🚗",c:"Trajet",t:"L'Estrie c'est loin, le trajet en voiture doit bien prendre 2 heures, c'est fatiguant."}]},
+
+  // SANTÉ & BIEN-ÊTRE (12 sujets)
+  {badge:"Annonce · Santé",titre:"Donnez votre sang — Héma-Québec",texte:`Chaque don peut sauver jusqu'à 3 vies ! Un don prend seulement 45 minutes. Critères : 17–70 ans, minimum 50 kg, bonne santé générale. Matériel stérile à usage unique. Collation offerte après le don. Centres ouverts 7j/7. hema-quebec.qc.ca`,infos:["45 minutes","17–70 ans","7j/7","Collation offerte"],mission:"Vous donnez votre sang régulièrement et vous souhaitez convaincre votre ami(e) de le faire pour la première fois.",objections:[{i:"😱",c:"Peur",t:"J'ai vraiment peur des aiguilles, rien que d'y penser je me sens mal."},{i:"⏰",c:"Temps",t:"45 minutes c'est sans compter les transports et l'attente, ça prend facilement 2 heures."},{i:"😴",c:"Fatigue",t:"J'ai peur d'être épuisé(e) après le don surtout si j'ai du travail le lendemain."},{i:"🤔",c:"Utilité",t:"Mon don de plus ou de moins ne changera rien vraiment, il y a assez de donneurs."},{i:"🧬",c:"Santé",t:"J'ai peur qu'on utilise mon sang pour des tests médicaux sans mon consentement."},{i:"📏",c:"Poids",t:"Je ne suis pas sûr(e) de faire les 50 kg requis, c'est peut-être trop limite pour moi."}]},
+  {badge:"Annonce · Fitness",titre:"Rejoignez un club de course — Running Montréal",texte:`Courez et progressez ensemble ! Notre club accueille coureurs débutants et confirmés. Sorties collectives tous les samedis matin à 8h. Entraînement personnalisé inclus. Cotisation annuelle : 50 $. Objectif : préparer votre premier 10 km ou demi-marathon. running-montreal.ca`,infos:["50 $/an","Samedi 8h","Tous niveaux","Objectif course"],mission:"Vous êtes membre de ce club et adorez courir. Vous voulez convaincre votre ami(e) sédentaire de vous rejoindre.",objections:[{i:"🦵",c:"Condition physique",t:"Je ne cours jamais, je vais mourir après 5 minutes, je ne veux pas me ridiculiser."},{i:"⏰",c:"Horaire",t:"Le samedi matin à 8h… je dors jusqu'à midi le week-end."},{i:"💸",c:"Équipement",t:"Il faut acheter des chaussures de running adaptées, ça coûte cher."},{i:"🌧️",c:"Météo",t:"En hiver à Montréal il fait -20°C, je ne peux pas courir dans ces conditions."},{i:"🤕",c:"Blessures",t:"J'ai eu des douleurs aux genoux dans le passé, j'ai peur d'aggraver les choses."},{i:"🏃",c:"Rythme",t:"Je cours très lentement, j'aurais l'impression de ralentir tout le groupe."}]},
+  {badge:"Annonce · Santé",titre:"Arrêtez de fumer avec la méthode infrarouge — Centre NicoStop",texte:`Retrouvez votre santé et économisez jusqu'à 3 000 $ par an ! Notre méthode par rayons infrarouges : 3 séances en 3 jours consécutifs, sans médicament, sans stress. Suivi pendant 6 mois. Taux de réussite : 78 %. nicostop.ca`,infos:["3 séances","6 mois suivi","78% réussite","Sans médicament"],mission:"Votre ami(e) fume depuis des années. Vous avez vu cette publicité et voulez le/la convaincre d'essayer cette méthode.",objections:[{i:"🚬",c:"Habitude",t:"Je ne fume pas tant que ça, seulement quand je suis stressé(e)."},{i:"💸",c:"Coût",t:"3 séances plus 6 mois de suivi, ça doit coûter une fortune."},{i:"🤨",c:"Méthode",t:"Des rayons infrarouges pour arrêter de fumer ? Ça me semble vraiment bizarre."},{i:"👥",c:"Social",t:"Tous mes amis fument, dès qu'on sort je vais avoir envie de fumer."},{i:"😤",c:"Tentatives",t:"J'ai déjà essayé de nombreuses méthodes et rien n'a jamais marché pour moi."},{i:"⚖️",c:"Poids",t:"J'ai peur de grossir si j'arrête, tout le monde prend du poids après l'arrêt."}]},
+  {badge:"Annonce · Bien-être",titre:"Yoga du rire — Club de rire, séances hebdomadaires",texte:`Riez sans raison et ressentez les bienfaits ! Le yoga du rire combine exercices de rire et de respiration. Aucune capacité artistique requise. Séances chaque mardi, 18h–19h. Première séance gratuite. Tarif mensuel : 40 $. yogodurire.ca`,infos:["Mardi 18h","1ère séance gratuite","40 $/mois","Tous niveaux"],mission:"Vous pratiquez le yoga du rire et avez adoré. Vous essayez de convaincre votre ami(e) stressé(e) d'essayer.",objections:[{i:"😅",c:"Gêne",t:"Rire pour rien avec des inconnus… je serais beaucoup trop gêné(e)."},{i:"🤔",c:"Utilité",t:"Je ne vois pas en quoi rire bêtement peut m'aider à gérer mon stress."},{i:"⏰",c:"Temps",t:"Le mardi soir c'est ma soirée télé, je ne veux pas sacrifier ça."},{i:"💸",c:"Argent",t:"40 € par mois juste pour aller rigoler, je préfère garder cet argent."},{i:"😬",c:"Confiance",t:"Je suis quelqu'un de réservé, je ne suis pas capable de rire sur commande."},{i:"🏥",c:"Efficacité",t:"Pour vraiment gérer mon stress, je ferais mieux de voir un professionnel de santé."}]},
+  {badge:"Annonce · Médecine",titre:"Consultation en médecine douce — Naturopathe certifié",texte:`Prenez soin de votre santé naturellement ! Consultations en naturopathie : bilan de santé complet, plan alimentaire personnalisé, gestion du stress. Première consultation : 80 $, suivis : 60 $/h. naturo-sante.ca`,infos:["80 $ 1ère consultation","60 $/h suivi","Bilan santé","Plan alimentaire"],mission:"Vous avez amélioré votre santé grâce à la naturopathie. Vous voulez convaincre votre ami(e) de consulter à son tour.",objections:[{i:"🤨",c:"Scepticisme",t:"La naturopathie ce n'est pas de la vraie médecine, c'est juste du charlatanisme."},{i:"💸",c:"Coût",t:"80 € pour une consultation, c'est cher surtout si ce n'est pas remboursé."},{i:"💊",c:"Médecine classique",t:"J'ai déjà mon médecin de famille, je ne vois pas l'intérêt de consulter quelqu'un d'autre."},{i:"⏰",c:"Temps",t:"Je n'ai pas le temps de changer toute mon alimentation et mes habitudes de vie."},{i:"📋",c:"Régime",t:"Je suis sûr(e) qu'il va me faire arrêter plein de choses que j'aime manger."},{i:"🩺",c:"Diagnostic",t:"Et si ma santé nécessite un vrai traitement médical, le naturopathe va-t-il le voir ?"}]},
+  {badge:"Annonce · Spa",titre:"Immersion en bain de forêt — Sylvothérapie en Laurentides",texte:`Reconnectez-vous à la nature ! La sylvothérapie (shinrin-yoku) est prouvée scientifiquement pour réduire le stress et renforcer l'immunité. Sessions de 3h guidées en forêt. Tarif : 95 $. Saison : toute l'année. foret-sante.ca`,infos:["95 $/session","3h en forêt","Toute l'année","Scientifiquement prouvé"],mission:"Vous avez fait une session de sylvothérapie et vous avez adoré. Vous voulez y emmener votre ami(e) stressé(e).",objections:[{i:"🌲",c:"Activité",t:"Se promener en forêt c'est bien mais je peux le faire seul(e) pour pas cher."},{i:"🦟",c:"Nature",t:"Je déteste les insectes et la boue, la forêt ce n'est vraiment pas mon endroit."},{i:"💸",c:"Tarif",t:"95 € pour marcher dans les bois, je trouve ça vraiment excessif."},{i:"🤔",c:"Efficacité",t:"Je ne vois pas comment marcher en forêt peut vraiment réduire mon stress de façon durable."},{i:"⏰",c:"Durée",t:"3 heures dans une forêt, je vais m'ennuyer très vite."},{i:"📱",c:"Déconnexion",t:"On sera sans téléphone et sans réseau pendant 3h, je ne peux pas me permettre ça."}]},
+
+  // ACTIVITÉS & LOISIRS (18 sujets)
+  {badge:"Annonce · Loisir",titre:"Dîner dans le noir — Restaurant expérience",texte:`Une soirée inoubliable ! Dégustez votre repas dans une obscurité totale guidé par nos serveurs non-voyants. Stimulez tous vos sens : goût, odorat, touché, ouïe. Dès 100 $ par personne, repas et boissons inclus. Disponible du jeudi au dimanche. aveugle-resto.ca`,infos:["100 $/pers.","Repas inclus","Jeu.–Dim.","Serveurs non-voyants"],mission:"Vous avez réservé une table pour ce dîner dans le noir et vous voulez convaincre votre ami(e) de vous y accompagner.",objections:[{i:"🍽️",c:"Nourriture",t:"Je veux voir ce que je mange, j'ai peur des mauvaises surprises dans mon assiette."},{i:"💸",c:"Prix",t:"100 € pour dîner dans le noir, c'est vraiment cher pour ne rien voir."},{i:"🧹",c:"Propreté",t:"Je ne peux pas voir si la table et les couverts sont propres, ça m'inquiète."},{i:"🚶",c:"Pratique",t:"Et si je dois sortir rapidement pour aller aux toilettes, comment je fais ?"},{i:"😰",c:"Claustrophobie",t:"L'obscurité totale me rend anxieux(se), je pense que je vais paniquer."},{i:"💬",c:"Convivialité",t:"Pour moi un bon dîner c'est aussi admirer la décoration et voir les gens avec qui on est."}]},
+  {badge:"Annonce · Rencontre",titre:"Site de rencontres — Trouvez l'amour en ligne",texte:`Notre plateforme met en relation des célibataires sérieux. Profil détaillé, matching algorithmique, messagerie sécurisée. Inscription gratuite. Abonnement Premium : 30 $/mois pour les fonctionnalités avancées. Communauté de 500 000 membres actifs au Québec. loveconnect.ca`,infos:["Inscription gratuite","30 $/mois Premium","500 000 membres","Matching algorithmique"],mission:"Votre ami(e) est célibataire depuis longtemps. Vous voulez le/la convaincre d'essayer ce site de rencontres.",objections:[{i:"🙅",c:"Approche",t:"Ce n'est pas naturel de rencontrer quelqu'un comme ça, je préfère laisser faire le hasard."},{i:"😒",c:"Manque de temps",t:"Je suis très occupé(e) en ce moment, je n'ai pas le temps de gérer des conversations en ligne."},{i:"💸",c:"Coût",t:"30 € par mois pour l'abonnement Premium, c'est beaucoup pour des résultats incertains."},{i:"😨",c:"Sécurité",t:"J'ai peur de tomber sur des personnes malhonnêtes ou dangereuses sur Internet."},{i:"💔",c:"Romantisme",t:"Ce n'est pas très romantique comme façon de se rencontrer, je préfère quelque chose de plus spontané."},{i:"📸",c:"Image",t:"Je ne suis pas à l'aise avec l'idée de mettre ma photo et mes informations personnelles sur Internet."}]},
+  {badge:"Annonce · Créativité",titre:"Chantier de fouilles archéologiques — Participez à la recherche",texte:`Vous aimez l'histoire ? Rejoignez un chantier de fouilles et participez à la découverte de notre patrimoine. Dans de nombreuses régions, des chantiers permettent d'avancer la recherche scientifique. Hébergement gratuit sur le site. Passion et bonne volonté suffisent. fouilles-patrimoine.ca`,infos:["Hébergement gratuit","Passion requise","Plusieurs régions","Contribution scientifique"],mission:"Vous avez participé à un chantier de fouilles et trouvé ça fascinant. Vous voulez convaincre votre ami(e) de s'y inscrire.",objections:[{i:"💪",c:"Physique",t:"J'ai peur de me blesser le dos à creuser toute la journée sous le soleil."},{i:"🏖️",c:"Vacances",t:"Mes vacances c'est pour me reposer, pas pour travailler bénévolement."},{i:"🎓",c:"Compétences",t:"Je ne suis ni archéologue ni historien(ne), je ne serais d'aucune utilité."},{i:"🧹",c:"Conditions",t:"Creuser dans la terre toute la journée, c'est sale et je ne supporte pas ça."},{i:"⏳",c:"Patience",t:"Je ne suis vraiment pas quelqu'un de patient, les fouilles doivent être très lentes."},{i:"👥",c:"Social",t:"Je n'aime pas les activités de groupe avec des inconnus pendant plusieurs jours."}]},
+  {badge:"Annonce · Publicité",titre:"Gagnez de l'argent avec de la pub sur votre voiture",texte:`Roulez et soyez payé(e) ! Installez des autocollants publicitaires sur votre voiture et gagnez jusqu'à 300 $/mois. Aucune contrainte : vous roulez normalement, les autocollants sont posés et retirés par nos partenaires. Inscription gratuite sur pubauto.ca`,infos:["Jusqu'à 300 $/mois","Inscription gratuite","Aucune contrainte","Autocollants amovibles"],mission:"Vous faites partie de ce programme et gagnez de l'argent facilement. Vous voulez convaincre votre ami(e) de s'inscrire.",objections:[{i:"🚗",c:"Esthétique",t:"Je ne veux pas que ma belle voiture soit couverte d'autocollants, c'est horrible."},{i:"🤔",c:"Crédibilité",t:"300 € par mois juste pour des autocollants ? Ça me semble trop beau pour être vrai."},{i:"📋",c:"Conditions",t:"Et s'ils mettent de la publicité pour une marque dont je ne partage pas les valeurs ?"},{i:"🏠",c:"Trajet",t:"Je ne roule pas beaucoup, seulement pour aller au travail, est-ce que ça compte quand même ?"},{i:"📜",c:"Légalité",t:"Est-ce que c'est vraiment légal ? Et qu'est-ce que ça implique pour mon assurance ?"},{i:"⏰",c:"Durée",t:"Pour combien de temps je m'engage si je m'inscris ? Je peux arrêter quand je veux ?"}]},
+  {badge:"Annonce · Technologie",titre:"Meubles en carton — Design écologique et robuste",texte:`Karton Design révolutionne votre intérieur avec des meubles en carton recyclable, aussi solides que le bois, 100 % écologiques et bien moins chers que les meubles en kit. Étagères, bureaux, lampes, tables. Personnalisables. karton-design.ca`,infos:["100% recyclable","Aussi solide que le bois","Personnalisable","Moins cher que le bois"],mission:"Vous venez de meubler votre bureau avec des meubles Karton Design et adorez. Vous voulez convaincre votre ami(e) d'en acheter.",objections:[{i:"💪",c:"Solidité",t:"Des meubles en carton… ça ne peut pas être solide, ça va s'effondrer en quelques mois."},{i:"💧",c:"Durabilité",t:"Le carton ça résiste très mal à l'humidité, et si quelque chose se renverse dessus ?"},{i:"🎨",c:"Design",t:"Je ne veux pas des meubles en carton chez moi, ça fait amateur et pas élégant."},{i:"💸",c:"Prix",t:"Pour le même prix je peux acheter de vrais meubles en bois qui dureront 20 ans."},{i:"🌿",c:"Écologie",t:"Est-ce que c'est vraiment plus écologique que du bois certifié FSC ?"},{i:"🏠",c:"Personnalisation",t:"Je ne suis pas bricoleur(se), est-ce que le montage est vraiment simple à faire seul(e) ?"}]},
+  {badge:"Annonce · Covoiturage",titre:"Covoiturage — Moins de CO₂, plus d'économies !",texte:`Partagez vos trajets et économisez sur l'essence ! Sur covoiturage.ca, trouvez des milliers de trajets quotidiens à Montréal et partout au Québec. Inscription gratuite. Paiement sécurisé entre particuliers. Économisez jusqu'à 60 % sur vos frais de transport.`,infos:["Gratuit","–60% sur transport","Milliers de trajets","Paiement sécurisé"],mission:"Vous utilisez le covoiturage depuis 6 mois et avez économisé beaucoup d'argent. Vous essayez de convaincre votre ami(e) de l'essayer.",objections:[{i:"🙅",c:"Indépendance",t:"Dans ma voiture je fais ce que je veux, je mets ma musique et je m'arrête où je veux."},{i:"😟",c:"Sécurité",t:"Je n'ai pas envie de monter dans la voiture d'un total inconnu."},{i:"⏱️",c:"Temps",t:"Avec les détours pour déposer les gens, ça prend plus de temps que d'y aller seul(e)."},{i:"📱",c:"Organisation",t:"C'est trop compliqué à organiser, je préfère partir quand je veux."},{i:"💰",c:"Économies",t:"L'économie est vraiment minime si je partage seulement avec une personne."},{i:"🌍",c:"Environnement",t:"Ce sont les grandes entreprises qui doivent réduire la pollution, pas nous les particuliers."}]},
+  {badge:"Annonce · Numérique",titre:"Achetez en ligne — Guide des meilleures boutiques",texte:`Faites vos achats depuis chez vous ! Notre guide sélectionne les meilleures boutiques en ligne : qualité garantie, prix compétitifs, livraison rapide et retours faciles. Économisez en moyenne 25 % vs les magasins traditionnels. acheter-enligne.ca`,infos:["–25% en moyenne","Livraison rapide","Retours faciles","Paiement sécurisé"],mission:"Vous achetez tout en ligne depuis des années. Vous voulez convaincre votre ami(e) réticent(e) de se lancer.",objections:[{i:"🔐",c:"Sécurité",t:"Je ne veux pas mettre mon numéro de carte bancaire sur Internet, c'est trop risqué."},{i:"📦",c:"Livraison",t:"Il y a souvent des retards de livraison et les colis arrivent abîmés."},{i:"👁️",c:"Toucher",t:"Je veux pouvoir voir et essayer les produits avant d'acheter, surtout pour les vêtements."},{i:"🤝",c:"Local",t:"J'essaie de soutenir les commerces de mon quartier, pas les géants comme Amazon."},{i:"🔄",c:"Retours",t:"Si ça ne me convient pas, le retour doit être une galère et ça prend des semaines."},{i:"📵",c:"Contact",t:"Quand j'ai un problème, je veux pouvoir parler à quelqu'un en personne, pas chatter."}]},
+  {badge:"Annonce · Jeux vidéo",titre:"Les jeux vidéo ont des bienfaits méconnus !",texte:`Des spécialistes reconnaissent que les jeux vidéo développent les réflexes, la logique, la stratégie et la concentration. Utilisés en rééducation dans certains hôpitaux. Des études montrent qu'ils peuvent améliorer les capacités cognitives. Essayez notre sélection de jeux éducatifs !`,infos:["Prouvé par des études","Utilisé en hôpitaux","Améliore les réflexes","Jeux éducatifs"],mission:"Vous jouez aux jeux vidéo de façon modérée et en retirez des bénéfices. Vous voulez convaincre votre ami(e) sceptique d'essayer.",objections:[{i:"📺",c:"Addiction",t:"Les jeux vidéo rendent accro, surtout les jeunes qui ne savent plus s'arrêter."},{i:"🪑",c:"Sédentarité",t:"Rester assis devant un écran des heures, c'est tout sauf bon pour la santé."},{i:"💸",c:"Coût",t:"Une console et les jeux coûtent très cher, je ne peux pas me permettre ça."},{i:"🧠",c:"Contenu",t:"La plupart des jeux montrent de la violence, ce n'est pas quelque chose que je veux dans ma vie."},{i:"👥",c:"Isolement",t:"Jouer aux jeux vidéo c'est une activité solitaire qui remplace les vraies interactions sociales."},{i:"⏰",c:"Temps",t:"Je préfère utiliser mon temps libre pour des activités plus enrichissantes."}]},
+  {badge:"Annonce · Pêche",titre:"Faites-vous plaisir, allez à la pêche en Mauricie !",texte:`La pêche sportive : l'activité parfaite pour se ressourcer en pleine nature ! Permis de pêche inclus, équipement fourni, guide local disponible. Chalets disponibles sur le bord du lac. Week-end dès 250 $ pour 2. Saison : mai–octobre. peche-mauricie.ca`,infos:["250 $/2 pers.","Équipement fourni","Guide dispo","Mai–octobre"],mission:"Vous adorez la pêche et voulez convaincre votre ami(e) de vous accompagner pour un week-end en Mauricie.",objections:[{i:"🎣",c:"Patience",t:"La pêche c'est rester assis sans rien faire pendant des heures, ce n'est vraiment pas mon truc."},{i:"🐟",c:"Éthique",t:"Je ne veux pas pêcher et tuer des poissons, c'est cruel selon moi."},{i:"🦟",c:"Nature",t:"Passer un week-end au bord d'un lac avec des moustiques, non merci."},{i:"💸",c:"Budget",t:"250 € pour aller pêcher, je peux trouver des activités bien plus intéressantes pour ce prix."},{i:"🌧️",c:"Météo",t:"Et s'il pleut tout le week-end ? On va rester coincés sous la pluie à attendre un poisson."},{i:"🏙️",c:"Préférence",t:"Je suis une personne de ville, la forêt et les lacs ce n'est pas mon environnement naturel."}]},
+  {badge:"Annonce · Bénévolat",titre:"Aidez un jeune en difficulté scolaire — Association Espoir",texte:`Devenez tuteur(trice) bénévole ! Seulement 2 heures par semaine pour redonner confiance à un jeune en difficulté. Accompagnement, aide aux devoirs, écoute. Aucune expérience en enseignement requise. Formation assurée. Horaires flexibles. espoir-education.ca`,infos:["2h/semaine","Formation incluse","Flexibles","Sans expérience"],mission:"Vous êtes tuteur(trice) bénévole depuis 6 mois et c'est très gratifiant. Vous voulez convaincre votre ami(e) de faire pareil.",objections:[{i:"⏰",c:"Temps",t:"Je suis très occupé(e) avec mon travail et ma vie de famille, vraiment 2h c'est trop."},{i:"🎓",c:"Compétences",t:"Je ne suis pas enseignant(e), j'aurais peur de mal expliquer les matières."},{i:"😬",c:"Enfants",t:"Je ne suis pas très à l'aise avec les enfants ou adolescents, je ne saurai pas comment réagir."},{i:"📍",c:"Déplacement",t:"Est-ce que je dois me déplacer chez le jeune ? Je n'ai pas de voiture."},{i:"💪",c:"Impact",t:"2 heures par semaine c'est peu, je ne vois pas comment ça peut vraiment changer quelque chose."},{i:"😰",c:"Engagement",t:"J'ai peur de commencer et de ne pas pouvoir continuer si ma situation change."}]},
+  {badge:"Annonce · Événement",titre:"Soirée déguisée — Les Beaux Masques, Montréal",texte:`L'association Les Beaux Masques organise sa soirée déguisée biennale ! Thème : « Animaux en Folie ». Endroit secret révélé 48h avant. 4 000 participants. Bar à volonté. DJ et animations toute la nuit. Billets : 55 $. beauxmasques.ca`,infos:["55 $/billet","Bar inclus","4 000 pers.","Lieu secret"],mission:"Vous avez adoré la dernière soirée et avez déjà pris deux billets. Vous voulez convaincre votre ami(e) de venir avec vous.",objections:[{i:"🎭",c:"Déguisement",t:"Je n'ai pas de déguisement et en acheter un exprès c'est une dépense inutile."},{i:"🤐",c:"Timidité",t:"Je suis plutôt timide, les grandes soirées avec des inconnus me mettent mal à l'aise."},{i:"🍺",c:"Alcool",t:"Je ne bois pas d'alcool, je ne vois pas l'intérêt d'une soirée avec bar à volonté."},{i:"📅",c:"Disponibilité",t:"Je ne suis pas sûr(e) d'être disponible, je dois vérifier mon agenda."},{i:"💸",c:"Prix",t:"55 € pour une soirée, c'est vraiment beaucoup surtout si on ne connaît personne là-bas."},{i:"🌙",c:"Sortie",t:"Je n'ai plus vraiment l'habitude de sortir tard la nuit, je suis crevé(e) le lendemain."}]},
+  {badge:"Annonce · Écologie",titre:"Devenez membre du WWF — Protégez la nature",texte:`Agissez pour la planète ! En devenant membre du WWF, 100 % de votre don financerait des projets de protection : sauver l'ours brun, protéger les forêts, lutter contre la pollution marine. Cotisation : à partir de 10 $/mois. wwf.ca`,infos:["Dès 10 $/mois","100% pour projets","Ours, forêts, océans","Certificat membre"],mission:"Vous êtes membre du WWF depuis 2 ans et croyez en leur mission. Vous voulez convaincre votre ami(e) d'adhérer.",objections:[{i:"🤔",c:"Utilité",t:"Mon petit don ne va pas vraiment changer grand chose face aux problèmes environnementaux."},{i:"💸",c:"Budget",t:"J'ai déjà plein de charges fixes, je n'ai pas d'argent supplémentaire à donner."},{i:"🤨",c:"Transparence",t:"Comment savoir si l'argent va vraiment aux projets et pas aux frais administratifs ?"},{i:"🌍",c:"Priorité",t:"Il y a des urgences humaines (faim, pauvreté) plus pressantes que les animaux."},{i:"🐻",c:"Efficacité",t:"Est-ce que les espèces protégées par le WWF sont vraiment sauvées grâce à ces dons ?"},{i:"📧",c:"Spam",t:"Si je m'abonne, je vais recevoir des dizaines d'emails et de courriers de sollicitation."}]},
+  {badge:"Annonce · Loisir",titre:"McPlacement — Rencontres express de l'emploi",texte:`Marre d'envoyer des CV dans le vide ? Participez aux rencontres express de l'emploi ! 7 minutes face à chaque recruteur pour vous vendre. Plusieurs employeurs présents. Taux de placement : 42 %. Inscription gratuite. mcplacement.ca`,infos:["7 min/recruteur","42% de placement","Gratuit","Plusieurs employeurs"],mission:"Vous avez trouvé un emploi grâce à ces rencontres express. Vous voulez convaincre votre ami(e) sans emploi d'y participer.",objections:[{i:"😰",c:"Stress",t:"7 minutes pour convaincre un recruteur, je vais complètement paniquer sous la pression."},{i:"👔",c:"Préparation",t:"Je n'ai pas le temps de préparer un discours pour une dizaine de recruteurs différents."},{i:"🤔",c:"Efficacité",t:"42% de placement, ça veut dire que 58% des gens repartent bredouilles."},{i:"📄",c:"CV",t:"Je préfère soigner mon CV et ma lettre de motivation plutôt que faire ça."},{i:"👥",c:"Concurrence",t:"Il va y avoir plein de candidats pour les mêmes postes, les chances sont minimes."},{i:"🏭",c:"Secteur",t:"Est-ce que des employeurs de mon secteur vont vraiment être présents à cet événement ?"}]},
+  {badge:"Annonce · Éducation",titre:"Donner des cours particuliers à domicile — Travail à domicile",texte:`Gagnez un revenu supplémentaire en donnant des cours particuliers ! Maths, français, langues, sciences — choisissez vos matières. Horaires entièrement flexibles. Rémunération : 25–40 $/h. Mise en relation avec les familles assurée. travail-domicile.ca`,infos:["25–40 $/h","Horaires libres","Vos matières","Mise en relation"],mission:"Vous donnez des cours particuliers depuis plusieurs mois et c'est très satisfaisant. Vous encouragez votre ami(e) à faire pareil.",objections:[{i:"🎓",c:"Diplôme",t:"Je n'ai pas de diplôme en enseignement, les parents ne vont pas me faire confiance."},{i:"🚗",c:"Déplacements",t:"Je n'ai pas de voiture, me déplacer chez les élèves va être très compliqué."},{i:"⏰",c:"Planning",t:"J'ai peur que ça soit difficile de combiner ces cours avec mon emploi principal."},{i:"😬",c:"Enfants",t:"Je ne suis pas à l'aise avec les enfants, je ne saurai pas comment adapter mes explications."},{i:"💰",c:"Revenus",t:"25 $ de l'heure c'est avant les impôts, au final ça ne rapporte pas tant que ça."},{i:"📱",c:"Contact",t:"Est-ce que je dois gérer moi-même les paiements et le contact avec les familles ?"}]},
+
+  // TECHNOLOGIE & SOCIÉTÉ (10 sujets)
+  {badge:"Annonce · Mobilité",titre:"Vélo électrique — Liberté et écologie au quotidien",texte:`Cyclotranquille vous propose une gamme de vélos électriques à partir de 1 200 $. Autonomie : 80 km. Batterie rechargeable en 4h. Location longue durée disponible : 95 $/mois. Essai gratuit en boutique. Subvention gouvernementale : jusqu'à 400 $. cyclotranquille.ca`,infos:["Dès 1 200 $","80 km d'autonomie","Subvention 400 $","Essai gratuit"],mission:"Vous avez acheté un vélo électrique et adorez vous déplacer avec. Vous voulez convaincre votre ami(e) d'en faire pareil.",objections:[{i:"💸",c:"Prix",t:"1 200 $ minimum pour un vélo, c'est une somme très importante."},{i:"⛈️",c:"Météo",t:"Au Québec en hiver il y a de la neige et du verglas, c'est dangereux à vélo."},{i:"🅿️",c:"Stationnement",t:"Où est-ce que je gare mon vélo électrique en ville sans risque de vol ?"},{i:"🔋",c:"Batterie",t:"4 heures de recharge et seulement 80 km, si j'oublie de recharger je suis coincé(e)."},{i:"💪",c:"Effort",t:"Si le vélo fait tout le travail, où est l'exercice physique ?"},{i:"🚌",c:"Transport",t:"Les transports en commun sont bien suffisants pour mes déplacements quotidiens."}]},
+  {badge:"Annonce · IA",titre:"L'intelligence artificielle à l'école — Révolution pédagogique",texte:`Une enquête nationale révèle que 89 % des élèves ont déjà utilisé l'IA pour leurs devoirs. Les experts sont divisés : outil révolutionnaire ou menace pour l'apprentissage ? Découvrez notre guide pour parents et enseignants sur l'utilisation éthique de l'IA à l'école.`,infos:["89% des élèves l'utilisent","Guide parents/enseignants","Utilisations éthiques","Débat actif"],mission:"Vous avez lu cet article et vous en parlez à votre ami(e) parent d'élève. Présentez-lui les informations et donnez votre point de vue.",objections:[{i:"😤",c:"Triche",t:"Si les élèves utilisent l'IA pour faire leurs devoirs, ils n'apprennent plus rien."},{i:"🧠",c:"Pensée critique",t:"L'IA pense à leur place, ça va tuer leur capacité à raisonner par eux-mêmes."},{i:"👨‍🏫",c:"Enseignants",t:"Si l'IA peut tout enseigner, à quoi servent encore les professeurs ?"},{i:"⚖️",c:"Équité",t:"Tous les élèves n'ont pas accès aux mêmes outils IA, ça va creuser les inégalités."},{i:"🔒",c:"Données",t:"Ces outils collectent des données sur nos enfants, ce n'est pas acceptable."},{i:"📚",c:"Tradition",t:"Les méthodes d'apprentissage traditionnelles ont fait leurs preuves depuis des siècles."}]},
+  {badge:"Annonce · Transport",titre:"Voiture électrique — Le Canada vers le tout-électrique en 2035",texte:`Le gouvernement interdit la vente de voitures à essence d'ici 2035. Les véhicules électriques : 0 émission, entretien réduit, subvention fédérale de 5 000 $. Prix moyen d'un VE : 38 000 $. Borne de recharge à domicile : 1 500 $. recharge-canada.ca`,infos:["Subvention 5 000 $","0 émission","Borne domicile 1 500 $","2035 : deadline"],mission:"Votre ami(e) hésite à acheter une voiture électrique. Présentez-lui les avantages et essayez de le/la convaincre de passer au tout-électrique.",objections:[{i:"💸",c:"Prix",t:"38 000 $ pour une voiture, même avec la subvention c'est bien au-dessus de mon budget."},{i:"🔋",c:"Autonomie",t:"J'ai peur de tomber en panne de batterie au milieu d'un long trajet."},{i:"⚡",c:"Bornes",t:"Il n'y a pas assez de bornes de recharge dans les régions éloignées du Québec."},{i:"⏰",c:"Recharge",t:"Faire le plein d'essence prend 5 minutes, recharger une batterie c'est des heures."},{i:"❄️",c:"Froid",t:"Par -30°C l'autonomie des batteries chute drastiquement, c'est un vrai problème ici."},{i:"♻️",c:"Écologie",t:"La fabrication des batteries lithium est très polluante, est-ce vraiment plus vert au final ?"}]},
+  {badge:"Annonce · Alimentation",titre:"Manger sainement avec un petit budget — Guide pratique",texte:`Contrairement aux idées reçues, il est possible de manger sainement sans se ruiner ! Légumineuses, céréales complètes, légumes de saison : des options nutritives et accessibles. +22 % de hausse alimentaire en 2 ans. Des recettes économiques et des astuces concrètes. bienmanger.ca`,infos:["Accessible","Légumineuses & céréales","Légumes de saison","Recettes économiques"],mission:"Votre ami(e) affirme qu'il est impossible de manger sainement avec un petit budget. Vous voulez lui prouver le contraire.",objections:[{i:"💸",c:"Coût",t:"Les fruits et légumes frais coûtent très cher, je ne peux pas me permettre d'en acheter régulièrement."},{i:"⏰",c:"Temps",t:"La cuisine saine ça prend du temps, entre le travail et les enfants je n'ai pas le temps."},{i:"😋",c:"Goût",t:"Les légumineuses et les céréales complètes c'est fade et peu appétissant."},{i:"🧒",c:"Enfants",t:"Mes enfants ne mangent pas de légumes, impossible de leur imposer un régime sain."},{i:"🛒",c:"Habitudes",t:"J'achète toujours au même endroit et je mange la même chose, je ne vois pas pourquoi changer."},{i:"📚",c:"Connaissances",t:"Je ne sais pas comment cuisiner les légumineuses ou les céréales complètes."}]},
+  {badge:"Annonce · Retraite",titre:"Vieillissement actif — Les aînés, une richesse pour la société",texte:`Un sondage révèle qu'en 2030, 1 Québécois sur 4 aura 65+ ans. 74 % des grands-parents gardent leurs petits-enfants régulièrement. 82 % des aînés souhaitent rester chez eux. Les seniors contribuent 350 milliards $/an à l'économie canadienne.`,infos:["1/4 aura 65+ en 2030","350 milliards/an","74% gardent petits-enfants","82% veulent rester chez eux"],mission:"Votre ami(e) jeune pense que les aînés « coûtent trop cher à la société ». Présentez-lui les données et défendez une vision plus nuancée.",objections:[{i:"💊",c:"Santé",t:"Les personnes âgées consomment des soins de santé très coûteux que les jeunes doivent payer."},{i:"💰",c:"Retraites",t:"Le système de retraite va s'effondrer avec autant de retraités pour si peu de travailleurs actifs."},{i:"🔄",c:"Emploi",t:"Les seniors qui restent trop longtemps au travail bloquent l'accès aux emplois pour les jeunes."},{i:"📱",c:"Numérique",t:"Les personnes âgées ne savent pas utiliser les outils numériques, c'est un frein à l'économie."},{i:"🏥",c:"Dépendance",t:"Beaucoup d'aînés deviennent dépendants et nécessitent des soins très intensifs."},{i:"🏠",c:"Isolement",t:"Beaucoup de personnes âgées sont isolées et ne contribuent plus vraiment à la société."}]},
+  {badge:"Annonce · Télétravail",titre:"Le télétravail — Révolution durable ou phénomène passager ?",texte:`Un sondage auprès de 3 200 travailleurs canadiens : 62 % souhaitent maintenir le télétravail partiel, 71 % estiment que leur productivité a augmenté, mais 45 % se sentent plus isolés. Les entreprises sont divisées sur le retour au bureau. remote-canada.ca`,infos:["62% pro-télétravail","71% + productifs","45% se sentent isolés","Débat entreprises"],mission:"Votre ami(e) hésite à accepter un poste entièrement en télétravail. Présentez-lui les résultats du sondage et donnez votre avis.",objections:[{i:"🏢",c:"Isolation",t:"Rester chez soi toute la journée seul(e), je finirais par devenir déprimé(e)."},{i:"🧠",c:"Créativité",t:"Les idées les plus créatives émergent des échanges spontanés avec les collègues."},{i:"📏",c:"Gestion",t:"Mon manager ne pourrait pas me faire confiance si je travaille de chez moi."},{i:"🏠",c:"Espace",t:"Je n'ai pas d'espace dédié au travail chez moi, ma concentration serait nulle."},{i:"👶",c:"Famille",t:"Travailler chez soi avec des enfants est impossible, les interruptions sont constantes."},{i:"📈",c:"Carrière",t:"Si je suis moins visible au bureau, j'ai peur de passer à côté des promotions."}]},
+  {badge:"Annonce · Sport",titre:"Les bienfaits du sport — Les Canadiens bougent-ils assez ?",texte:`Seulement 44 % des adultes canadiens atteignent les 150 minutes d'activité physique recommandées par semaine. Le temps moyen devant les écrans est de 2h45 par jour. Les travailleurs actifs ont 30 % moins d'absentéisme. 1 enfant sur 4 est en surpoids.`,infos:["44% atteignent l'objectif","2h45 écrans/jour","–30% absentéisme","1/4 enfants en surpoids"],mission:"Votre ami(e) dit qu'il/elle n'a jamais le temps de faire du sport. Présentez-lui les données et essayez de le/la convaincre de bouger davantage.",objections:[{i:"⏰",c:"Temps",t:"Avec le travail, les enfants et la maison, il m'est vraiment impossible de trouver du temps."},{i:"💸",c:"Coût",t:"Les salles de sport et les équipements sportifs coûtent très cher."},{i:"😴",c:"Fatigue",t:"Je suis épuisé(e) après le travail, je n'ai aucune énergie pour faire du sport."},{i:"🤕",c:"Santé",t:"J'ai eu des problèmes de dos récemment, je ne veux pas aggraver les choses."},{i:"🏃",c:"Motivation",t:"J'ai essayé plusieurs fois de reprendre le sport, mais je m'arrête toujours après 2 semaines."},{i:"🎮",c:"Loisirs",t:"Mon temps libre c'est pour me détendre, pas pour me fatiguer davantage."}]},
+  {badge:"Annonce · Réseaux sociaux",titre:"Réseaux sociaux et santé mentale des jeunes — Rapport national",texte:`Un rapport révèle que les 12–17 ans passent en moyenne 4h30 sur les réseaux sociaux par jour. 67 % se comparent aux autres en ligne. Au-delà de 3h/jour, le risque d'anxiété est multiplié par 3. Seulement 42 % des parents limitent l'usage du téléphone.`,infos:["4h30/jour chez les ados","3x plus d'anxiété","67% se comparent","42% parents agissent"],mission:"Vous avez lu ce rapport et en parlez à votre ami(e) parent d'un adolescent. Essayez de le/la convaincre d'agir sur l'usage des réseaux sociaux de son enfant.",objections:[{i:"📱",c:"Normal",t:"Tous les ados sont sur les réseaux, si mon enfant n'y est pas il sera exclu socialement."},{i:"🔒",c:"Autorité",t:"Mon enfant de 15 ans est assez grand pour gérer son temps d'écran tout seul."},{i:"🤝",c:"Confiance",t:"Si je surveille son téléphone, je vais perdre sa confiance et il me cachera des choses."},{i:"🎓",c:"École",t:"Il utilise aussi son téléphone pour faire ses recherches scolaires, je ne peux pas tout bloquer."},{i:"📊",c:"Données",t:"Une étude c'est des statistiques, mon enfant n'est pas forcément concerné."},{i:"😤",c:"Résistance",t:"J'ai déjà essayé de limiter le temps d'écran et ça s'est transformé en guerre à la maison."}]},
+  {badge:"Annonce · Immigration",titre:"Immigration économique — Atout ou défi pour le marché du travail ?",texte:`Le Canada a accueilli 465 000 nouveaux résidents permanents en 2023. 78 % des PME peinent à recruter localement. Mais 1 immigrant sur 3 est surqualifié pour son poste. Délai moyen de reconnaissance des diplômes étrangers : 5 ans.`,infos:["465 000 résidents 2023","78% PME en difficulté","1/3 surqualifiés","5 ans pour diplômes"],mission:"Votre collègue a des opinions négatives sur l'immigration. Présentez-lui ces données objectivement et défendez votre point de vue.",objections:[{i:"💼",c:"Emploi",t:"Les immigrants prennent les emplois des Canadiens de naissance, c'est injuste."},{i:"🏠",c:"Logement",t:"L'immigration massive aggrave la crise du logement et fait monter les loyers."},{i:"🗣️",c:"Langue",t:"Si les immigrants ne parlent pas français ou anglais couramment, comment vont-ils s'intégrer ?"},{i:"💰",c:"Services",t:"Les immigrants utilisent les services publics (santé, école) sans avoir contribué au système."},{i:"🌍",c:"Culture",t:"Une immigration trop rapide rend difficile l'intégration culturelle et crée des tensions."},{i:"📋",c:"Diplômes",t:"Si leurs diplômes ne sont pas reconnus, pourquoi les faire venir en si grand nombre ?"}]},
+  {badge:"Annonce · Alimentation",titre:"Manger local et bio — Le mouvement des marchés fermiers",texte:`Les marchés fermiers se multiplient au Québec ! Achetez directement aux agriculteurs locaux : produits plus frais, moins de transport, économie locale stimulée. 300 marchés au Québec. Saison : mai–octobre. Le bio local : 20 % plus cher mais 40 % plus nutritif selon les études. marches-fermiers.ca`,infos:["300 marchés au Québec","20% plus cher","40% plus nutritif","Mai–octobre"],mission:"Vous achetez régulièrement au marché fermier. Vous voulez convaincre votre ami(e) de faire pareil.",objections:[{i:"💸",c:"Prix",t:"Le bio c'est 20 % plus cher et avec l'inflation je ne peux pas me permettre ça."},{i:"⏰",c:"Temps",t:"Faire le marché fermier le samedi matin puis l'épicerie pour le reste, c'est trop de temps."},{i:"📅",c:"Saison",t:"De mai à octobre seulement, qu'est-ce que je fais le reste de l'année ?"},{i:"🧊",c:"Conservation",t:"Les produits du marché sont moins emballés et se conservent moins longtemps."},{i:"🛒",c:"Commodité",t:"Au supermarché j'ai tout sous le même toit, c'est beaucoup plus pratique."},{i:"🌍",c:"Impact",t:"Acheter local ou pas, est-ce que ça change vraiment quelque chose à l'environnement ?"}]}
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let state = {
+  phase: 'accueil',
+  sA: null, sB: null,
+  timer: null, secLeft: 0,
+  secElapsed: { a: null, b: null },
+  timerOn: false
+};
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function demarrerSession() {
+  state.sA = sujetsA[Math.floor(Math.random() * sujetsA.length)];
+  state.sB = sujetsB[Math.floor(Math.random() * sujetsB.length)];
+  state.secElapsed = { a: null, b: null };
+  showSectionA();
+}
+
+function showSectionA() {
+  state.phase = 'a';
+  state.timerOn = false;
+  state.secLeft = 300;
+  clearTimer();
+  show('sujet-screen');
+  hide('accueil'); hide('resultats-screen');
+
+  setTag('Section A — Appel téléphonique', 'tag-a');
+  setDots('a');
+  setProgress(3);
+  setTimer(300);
+  rmUrgent();
+  document.getElementById('t-label').textContent = 'Durée max';
+
+  const s = state.sA;
+  document.getElementById('content').innerHTML = `
+    <div class="annonce-card">
+      <div class="card-label">📋 Annonce</div>
+      <div class="card-title">${s.t}</div>
+      <div class="card-body">${s.b.replace(/\n/g,'<br>')}</div>
+      <div class="chips-row">${s.d.map(d=>`<span class="chip">${d}</span>`).join('')}</div>
+    </div>
+    <div class="mission-box">
+      <div class="mission-label">📞 Votre mission</div>
+      <div class="mission-text">${s.c}<br><br><strong>Pas de préparation — commencez naturellement comme un vrai appel.</strong></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-start" onclick="startTimer('a')">▶ Démarrer le chrono</button>
+      <button class="btn btn-next" onclick="goToB()">Section B →</button>
+      <button class="btn btn-ghost" onclick="demarrerSession()">↺ Nouveau sujet</button>
+    </div>`;
+}
+
+function goToB() {
+  clearTimer();
+  if (state.timerOn) state.secElapsed.a = 300 - state.secLeft;
+  lancerPrep();
+}
+
+function lancerPrep() {
+  showSectionB();
+  let sec = 60;
+  const banner = document.getElementById('prep-banner');
+  const cnt = document.getElementById('prep-count');
+  banner.classList.add('active');
+  cnt.textContent = sec;
+  const iv = setInterval(() => {
+    sec--;
+    cnt.textContent = sec;
+    if (sec <= 0) { clearInterval(iv); banner.classList.remove('active'); }
+  }, 1000);
+}
+
+function showSectionB() {
+  state.phase = 'b';
+  state.timerOn = false;
+  state.secLeft = 600;
+  clearTimer();
+  show('sujet-screen');
+  hide('accueil'); hide('resultats-screen');
+
+  setTag('Section B — Dialogue de conviction', 'tag-b');
+  setDots('b');
+  setProgress(50);
+  setTimer(600);
+  rmUrgent();
+  document.getElementById('t-label').textContent = 'Durée max';
+
+  const s = state.sB;
+  const objHtml = s.objections.map((o,i) => `
+    <div class="obj-item" id="oi${i}" onclick="toggleObj(${i})">
+      <span class="obj-emoji">${o.i}</span>
+      <span class="obj-text">« ${o.t} »</span>
+      <span class="obj-cat">${o.c}</span>
+    </div>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="doc-card">
+      <div class="doc-badge">${s.badge}</div>
+      <div class="doc-title">${s.titre}</div>
+      <div class="doc-body">${s.texte.replace(/\n/g,'<br>')}</div>
+      <div class="doc-infos">${s.infos.map(i=>`<span class="doc-chip">✓ ${i}</span>`).join('')}</div>
+    </div>
+    <div class="mission-box-b">
+      <div class="mission-label">🎭 Votre mission</div>
+      <div class="mission-text">${s.mission}</div>
+      <div class="roles-row">
+        <div class="role-pill role-you">😊 <strong>Vous</strong> — Vous convainquez</div>
+        <div class="role-pill role-examiner">🎓 <strong>Examinateur</strong> — Il objecte</div>
+      </div>
+    </div>
+    <div class="objections-panel">
+      <div class="panel-title">Objections de l'examinateur</div>
+      <p class="hint-text">👆 Appuyez sur une carte pour découvrir l'objection — répondez à voix haute !</p>
+      <div class="obj-grid">${objHtml}</div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-start" onclick="startTimer('b')">▶ Démarrer le chrono</button>
+      <button class="btn btn-next" onclick="finish()">Terminer ✓</button>
+      <button class="btn btn-ghost" onclick="demarrerSession()">↺ Nouveau sujet</button>
+    </div>`;
+}
+
+function toggleObj(i) {
+  document.getElementById('oi'+i).classList.toggle('revealed');
+}
+
+function startTimer(sec) {
+  clearTimer();
+  state.timerOn = true;
+  const duree = sec === 'a' ? 300 : 600;
+  state.secLeft = duree;
+  const start = Date.now();
+  rmUrgent();
+
+  state.timer = setInterval(() => {
+    const elapsed = Math.floor((Date.now()-start)/1000);
+    const left = Math.max(0, duree - elapsed);
+    state.secLeft = left;
+    setTimer(left);
+
+    const pct = sec === 'a'
+      ? 3 + (1-left/duree)*47
+      : 50 + (1-left/duree)*50;
+    setProgress(pct);
+
+    if (left <= 60) document.getElementById('t-num').classList.add('urgent');
+
+    if (left <= 0) {
+      clearTimer();
+      state.secElapsed[sec] = duree;
+      if (sec === 'a') { alert('⏰ Section A terminée ! Passez à la Section B.'); goToB(); }
+      else finish();
+    }
+  }, 300);
+}
+
+function finish() {
+  clearTimer();
+  if (state.timerOn && state.phase==='b' && !state.secElapsed.b)
+    state.secElapsed.b = 600 - state.secLeft;
+
+  hide('sujet-screen');
+  const rs = document.getElementById('resultats-screen');
+  rs.style.display = 'flex';
+
+  document.getElementById('r-a').textContent = fmt(state.secElapsed.a);
+  document.getElementById('r-b').textContent = fmt(state.secElapsed.b);
+}
+
+function nouvelleSession() {
+  hide('resultats-screen');
+  show('accueil');
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+function clearTimer() { if (state.timer) { clearInterval(state.timer); state.timer = null; } }
+function rmUrgent() { document.getElementById('t-num').classList.remove('urgent'); }
+function show(id) {
+  const el = document.getElementById(id);
+  el.style.display = id === 'resultats-screen' ? 'flex' : 'block';
+  if (id === 'accueil') { el.style.display='flex'; el.style.flexDirection='column'; el.style.alignItems='center'; el.style.justifyContent='center'; }
+}
+function hide(id) { document.getElementById(id).style.display='none'; }
+function setTag(txt, cls) {
+  const el = document.getElementById('sec-tag');
+  el.textContent = txt; el.className = 'section-tag '+cls;
+}
+function setDots(phase) {
+  document.getElementById('dots').innerHTML = `
+    <div class="dot ${phase==='b'?'done':'active'}"></div>
+    <div class="dot ${phase==='b'?'active':''}"></div>`;
+}
+function setProgress(pct) { document.getElementById('prog').style.width = pct+'%'; }
+function setTimer(sec) {
+  const m = Math.floor(sec/60), s = sec%60;
+  document.getElementById('t-num').textContent = `${m}:${String(s).padStart(2,'0')}`;
+}
+function fmt(sec) {
+  if (sec===null) return 'Non mesuré';
+  return `${Math.floor(sec/60)}m ${String(sec%60).padStart(2,'0')}s`;
+}
+
+// Init
+show('accueil');
+</script>
+</body>
+</html>
